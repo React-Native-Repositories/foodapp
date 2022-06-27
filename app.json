@@ -2,6 +2,9 @@
   "expo": {
     "name": "foodjuan",
     "slug": "foodjuan",
+    "privacy": "public",
+    "description": "A foodpanda clone app for juans made with react native and firebase.",
+    "githubUrl": "https://github.com/kanamui/foodjuan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
