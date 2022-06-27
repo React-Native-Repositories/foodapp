@@ -43,7 +43,13 @@ const HomeHeader = (props) => {
           </HStack>
           <HStack space="4">
             <Icon as={Feather} size="md" name="heart" color="white" />
-            <Icon as={Feather} size="md" name="shopping-bag" color="white" />
+            <IconButton
+              p="0"
+              icon={<Icon as={Feather} size="md" name="shopping-bag" color="white" />}
+              onPress={() => {
+                props.navigation.navigate('Cart');
+              }}
+            />
           </HStack>
         </HStack>
       </HStack>

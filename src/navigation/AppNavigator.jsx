@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
 import { View, Text, Box, Pressable, useColorMode } from 'native-base';
@@ -16,6 +16,7 @@ const AppNavigator = () => {
   const {colorMode} = useColorMode();
   return (
     <NavigationContainer theme={colorMode === 'light' ? DefaultTheme : DarkTheme}>
+      <StatusBar backgroundColor="#D70F64" />
       <Drawer.Navigator
         drawerContent={props => (
           <DrawerContentScrollView {...props}>
