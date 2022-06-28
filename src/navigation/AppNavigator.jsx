@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
-import { View, Text, Box, Pressable, useColorMode } from 'native-base';
+import { StatusBar, View, Text, Box, Pressable, useColorMode } from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';

@@ -1,18 +1,10 @@
 import React from 'react';
-import { Pressable, HStack, Text } from 'native-base';
+import { HStack, Text } from 'native-base';
+import AnimatedPressable from './AnimatedPressable';
 
 const PressableRow = (props) => {
   return (
-    <Pressable
-      py="3" px="4"
-      _light={{
-        _pressed: { bg: 'gray.100' }
-      }}
-      _dark={{
-        _pressed: { bg: 'gray.800' }
-      }}
-      onPress={props.onPress}
-    >
+    <AnimatedPressable py="3" px="4" onPress={props.onPress}>
       <HStack justifyContent="space-between">
         <HStack>
           {props.leftIcon}
@@ -20,7 +12,7 @@ const PressableRow = (props) => {
         </HStack>
         {props.rightIcon}
       </HStack>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 

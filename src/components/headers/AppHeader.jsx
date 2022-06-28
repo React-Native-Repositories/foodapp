@@ -11,6 +11,7 @@ const AppHeader = (props) => {
       justifyContent="space-between"
       px={{ base: 4, md: 8 }}
       _light={{ bg: 'white' }}
+      {...props}
     >
       <HStack alignItems="center" space="4">
         <IconButton

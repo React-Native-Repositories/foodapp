@@ -13,12 +13,14 @@ import Feather from 'react-native-vector-icons/Feather';
 
 const HomeHeader = (props) => {
   return (
-    <>
-      <HStack
-        py="2"
-        px={{ base: 4, md: 8 }}
-        bg="#D70F64"
-      >
+    <VStack
+      pt="2" pb="4"
+      px={{ base: 4, md: 8 }}
+      bg="#D70F64"
+      shadow="4"
+      space="2"
+    >
+      <HStack>
         <HStack flex="1" alignItems="center" justifyContent="space-between">
           <HStack space="4">
             <IconButton
@@ -54,17 +56,13 @@ const HomeHeader = (props) => {
         </HStack>
       </HStack>
 
-      <HStack
-        pb="4"
-        px={{ base: 4, md: 8 }}
-        bg="#D70F64"
-      >
+      <HStack>
         <Input
           placeholder="Search for shops & restaurants"
           w="full" h="9"
           borderWidth="0"
           borderRadius="20"
-          fontSize="xs"
+          fontSize="sm"
           bg="white"
           _focus={{ bg: 'white' }}
           InputLeftElement={
@@ -72,7 +70,7 @@ const HomeHeader = (props) => {
           }
         />
       </HStack>
-    </>
+    </VStack>
   );
 }
 

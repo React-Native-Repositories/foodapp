@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, FlatList, Animated } from 'react-native';
+import { Dimensions, Animated, FlatList } from 'react-native';
 import {
   View,
   HStack,
@@ -10,103 +10,103 @@ import {
   Text,
   AspectRatio,
   Image,
-  ScrollView,
-  Button
+  ScrollView
 } from 'native-base';
+import AnimatedPressable from '../components/AnimatedPressable';
+import AnimatedPressableCard from '../components/AnimatedPressableCard';
+import RestaurantCard from '../components/RestaurantCard';
 import Layout from '../components/Layout';
 import HomeHeader from '../components/headers/HomeHeader';
 
 const { width: PAGE_WIDTH } = Dimensions.get('window');
 
-const rateOrderItems = [
-  "McDonald's - Manila",
-  "Jolibee - Manila",
-  "McDonald's - Manila",
-  "Jolibee - Manila",
-  "KFC - Manila",
+const restaurants = [
+  {
+    title: "McDonald's - Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/hyii-listing.jpg?width=400&height=292"
+  },
+  {
+    title: "Jolibee - Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/r1kb-listing.jpg?width=400&height=292"
+  },
+  {
+    title: "KFC - Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/v2ms-listing.jpg?width=400&height=292"
+  }
 ];
 
-const HomePickerCard = (props) => {
+const dailyDeals = [
+  {
+    title: "Low Delivery Fee",
+    cover: "https://images.deliveryhero.io/image/fd-ph/campaign-assets/4b95b37e-f052-11ec-9b58-8aafc25a6d12/mobile_tile_EnJUpA.png?height=352&quality=95&width=288&"
+  },
+  {
+    title: "McDonald's",
+    cover: "https://images.deliveryhero.io/image/fd-ph/campaign-assets/628ada05-eff9-11ec-a091-d2d0972c390a/mobile_tile_EnuiMP.png?height=352&quality=95&width=288&"
+  },
+  {
+    title: "88FOOD",
+    cover: "https://images.deliveryhero.io/image/fd-ph/campaign-assets/fe845d67-e198-11ec-b49c-3a1fd50ff438/mobile_tile_Enaukt.png?height=352&quality=95&width=288&"
+  }
+];
+
+const HomeItem = (props) => {
   return (
-    <Box
-      {...props}
-      p="4"
-      bg="white"
+    <AnimatedPressableCard
       borderWidth="1"
       borderColor="gray.200"
-      borderRadius="10"
+      _contentContainerStyle={{
+        py: props.stretch ? '4' : '2',
+        p: '0',
+        pl: '4'
+      }}
+      {...props}
     >
-      <VStack>
-        <Heading fontSize={props.titleSize}>{props.title}</Heading>
-        <Text fontSize="xs" color="gray.500">{props.subtitle}</Text>
-      </VStack>
-    </Box>
-  );
-}
-
-const RestaurantCard = (props) => {
-  return (
-    <Stack>
-      <Box
-        {...props}
-        bg="white"
-        borderWidth="1"
-        borderColor="gray.200"
-        borderRadius="10"
-        overflow="hidden"
-        maxW="235"
+      <Heading fontSize={props.titleSize} mb="1">{props.title}</Heading>
+      {props.column &&
+      <Text
+        fontSize="xs"
+        color={props.subTitleMuted ? "gray.500" : "darkText"}
+        lineHeight="sm"
       >
-        <AspectRatio w="full" ratio={16/9}>
-          <Image
-            source={{ uri: props.cover }}
-            alt="cover" size="full"
-          />
-        </AspectRatio>
-        {props.discount &&
-        <Box
-          bg="#D70F64"
-          position="absolute"
-          top="1.5"
-          px="1.5"
-          py="0.5"
-          borderRightRadius="5"
+        {props.subtitle}
+      </Text>
+      ||
+      <VStack w={props.stretch ? "3/4" : "1/2"}>
+        <Text
+          fontSize="xs"
+          color={props.subTitleMuted ? "gray.500" : "darkText"}
+          lineHeight="sm"
         >
-          <Text fontSize="xs" color="white" bold>{props.discount}</Text>
-        </Box>}
-        {props.discountSub &&
-        <Box
-          bg="#D70F64"
-          position="absolute"
-          top="9"
-          px="1.5"
-          py="0.5"
-          borderRightRadius="5"
-        >
-          <Text fontSize="xs" color="white" bold>{props.discountSub}</Text>
-        </Box>}
-        <Box
-          bg="white"
-          position="absolute"
-          left="1.5"
-          bottom="1.5"
-          px="1.5"
-          py="0.5"
-          borderRadius="10"
-          shadow="1"
-        >
-          <Text fontSize="xs" bold>{props.deliveryTime}</Text>
-        </Box>
-      </Box>
-      <Text fontSize="sm" bold>{props.title}</Text>
-      <Text fontSize="sm" color="gray.500">{props.subtitle}</Text>
-      <Text fontSize="xs" bold>{props.deliveryFee}</Text>
-    </Stack>
+          {props.subtitle}
+        </Text>
+      </VStack>
+      }
+      {props.cover &&
+      <AspectRatio
+        ratio={1}
+        position={"absolute"}
+        right="0"
+        bottom={props.column ? props.coverBottom || "0" : "-8"}
+        w={props.column ? props.coverSize || "full" : props.stretch ? "1/4" : "1/2"}
+      >
+        <Image
+          source={{ uri: props.cover }}
+          alt="cover" size="full" resizeMode="contain"
+        />
+      </AspectRatio> || <></>
+      }
+    </AnimatedPressableCard>
   );
 }
 
 const CuisineCard = (props) => {
   return (
-    <VStack>
+    <AnimatedPressable
+      onPress={() => {
+        props.navigation.navigate('Cuisine', { title: props.title });
+      }}
+    >
       <Box
         {...props}
         bg="blueGray.200"
@@ -122,65 +122,48 @@ const CuisineCard = (props) => {
           />
         </AspectRatio>
       </Box>
-      <Text fontSize="xs" alignSelf="center" bold>{props.title}</Text>
-    </VStack>
+      <Text fontSize="xs" alignSelf="center" pb="4" bold>{props.title}</Text>
+    </AnimatedPressable>
   );
 }
 
-const HomeCard = (props) => {
+const DailyDealCard = (props) => {
   return (
-    <Box
+    <AnimatedPressableCard
+      maxW="150"
+      onPress={() => {
+        props.navigation.navigate('Campaign', { title: props.title });
+      }}
       {...props}
-      p="4"
-      bg="white"
-      borderWidth="1"
-      borderColor="gray.200"
-      borderRadius="10"
     >
-      <HStack justifyContent="space-between">
-        <VStack>
-          <Heading fontSize="md">{props.title}</Heading>
-          <Text fontSize="xs">{props.subtitle}</Text>
-        </VStack>
-      </HStack>
-    </Box>
-  );
-}
-
-const DailyDealsCard = (props) => {
-  return (
-    <Box
-      {...props}
-      bg="blueGray.200"
-      borderRadius="10"
-      overflow="hidden"
-      maxW="235"
-    >
-      <AspectRatio w="full" ratio={16/9}>
+      <AspectRatio w="full" ratio={500/611}>
         <Image
           source={{ uri: props.cover }}
-          alt="cover" size="full" resizeMode="stretch"
+          alt="cover" size="full"
         />
       </AspectRatio>
-    </Box>
+    </AnimatedPressableCard>
   );
 }
 
 const RateOrderCard = (props) => {
   return (
-    <Box
-      {...props}
-      p="4"
-      bg="white"
+    <AnimatedPressableCard
       borderWidth="1"
       borderColor="gray.200"
-      borderRadius="10"
+      _contentContainerStyle={{
+        p: '4'
+      }}
+      onPress={() => {
+        props.navigation.navigate('RateOrder', { data: props.data });
+      }}
+      {...props}
     >
       <HStack justifyContent="space-between">
         <VStack>
           <VStack mb="8">
             <Heading fontSize="md">How was your order?</Heading>
-            <Text fontSize="xs">{props.shop}</Text>
+            <Text fontSize="xs" color="gray.500">{props.data.title}</Text>
           </VStack>
           <Box
             p="1" px="2.5"
@@ -192,7 +175,7 @@ const RateOrderCard = (props) => {
           </Box>
         </VStack>
       </HStack>
-    </Box>
+    </AnimatedPressableCard>
   );
 }
 
@@ -212,7 +195,7 @@ const RateOrderCarousel = (props) => {
         decelerationRate={"fast"}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
-            return <RateOrderCard shop={item} w={PAGE_WIDTH-32} mx="4" />
+            return <RateOrderCard data={item} w={PAGE_WIDTH-32} mx="4" navigation={props.navigation} />
         }}
         onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -243,19 +226,61 @@ const Home = (props) => {
     <>
       <HomeHeader {...props} />
       <Layout>
+
+        {/* Home items */}
         <Box bg="blueGray.100" p="4">
           <VStack space="2">
             <HStack space="2">
-              <HomePickerCard title="Food delivery" subtitle="Order food you love" w="1/2" />
+              <HomeItem
+                cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_restaurants_0322.png"
+                coverBottom="-158"
+                title="Food delivery"
+                subtitle="Order food you love"
+                subTitleMuted
+                w="1/2"
+                column
+              />
               <VStack w="full" pr="4" space="2">
-                <HomePickerCard title="juanmart" titleSize="md" subtitle="Groceries in 20+ mins" w="1/2" h="32" />
-                <HomePickerCard title="Shops" titleSize="md" subtitle="Groceries and more" w="1/2" />
+                <HomeItem
+                  cover="https://images.deliveryhero.io/image/darkstores/categoryimages25mar2022/24.%20Fruits%20&%20Vegetables.png?height=104&dpi=1"
+                  coverSize="1/2"
+                  coverBottom="-86"
+                  title="juanmart"
+                  titleSize="md"
+                  subtitle="Groceries in 20+ mins"
+                  subTitleMuted
+                  w="1/2"
+                  h="32"
+                  column
+                />
+                <HomeItem
+                  cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_shops_0322.png"
+                  title="Shops"
+                  titleSize="md"
+                  subtitle="Groceries and more"
+                  subTitleMuted
+                  w="1/2"
+                />
               </VStack>
             </HStack>
             <HStack space="2">
-              <HomePickerCard title="Dine-in" titleSize="md" subtitle="Eating out? Enjoy 25% OFF" w="1/2" />
+              <HomeItem
+                cover="https://images.deliveryhero.io/image/foodpanda/vertical-switcher/ph/dine_in.png"
+                title="Dine-in"
+                titleSize="md"
+                subtitle="Eating out? Enjoy 25% OFF"
+                subTitleMuted
+                w="1/2"
+              />
               <VStack w="full" pr="4" space="2">
-                <HomePickerCard title="Pick-up" titleSize="md" subtitle="Get unli savings" w="1/2" />
+                <HomeItem
+                  cover="https://images.deliveryhero.io/image/foodpanda/bd/homescreen/APAC_Rebrand%202021_Navigation%20tiles/BD_pickup.png"
+                  title="Pick-up"
+                  titleSize="md"
+                  subtitle="Get unli savings"
+                  subTitleMuted
+                  w="1/2"
+                />
               </VStack>
             </HStack>
           </VStack>
@@ -267,7 +292,7 @@ const Home = (props) => {
             <Heading fontSize="lg">Your Restaurants</Heading>
           </Stack>
           <ScrollView
-            pb="4"
+            pb="2"
             horizontal
             showsHorizontalScrollIndicator={false}
             _contentContainerStyle={{
@@ -311,86 +336,107 @@ const Home = (props) => {
             <Heading fontSize="lg">Cuisines</Heading>
           </Stack>
           <ScrollView
-            pb="4"
+            pb="2"
             horizontal
             showsHorizontalScrollIndicator={false}
             _contentContainerStyle={{
               pl: '4'
             }}
           >
-            <VStack space="6">
+            <VStack space="2">
               <HStack space="2">
                 <CuisineCard
-                  title="Snacks"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/101.png"
+                  title="Fast Food"
+                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/65.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
-                  title="Filipino"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/164.png"
+                  title="American"
+                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/66.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Beverages"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/68.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
-                  title="Chinese"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/53.png"
+                  title="Japanese"
+                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/51.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Congee"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1088.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Asian"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/54.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Bowl"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1096.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Cakes"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1107.png"
+                  navigation={props.navigation}
                 />
               </HStack>
               <HStack space="2">
                 <CuisineCard
                   title="Burgers"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/64.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Coffee"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1101.png"
+                  navigation={props.navigation}
+                />
+                <CuisineCard
+                  title="Pizza"
+                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/52.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Chicken"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/79.png"
-                />
-                <CuisineCard
-                  title="American"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/66.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Drinks"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/72.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Australian"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/104.png"
+                  navigation={props.navigation}
                 />
                 <CuisineCard
                   title="Bread"
                   cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1106.png"
+                  navigation={props.navigation}
                 />
               </HStack>
             </VStack>
           </ScrollView>
         </Stack>
 
-        <HomeCard
+        <HomeItem
           m="4"
+          cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/pro.png"
           title="pro perks"
+          titleSize="md"
           subtitle="monthly exclusive deals and FREE..."
+          stretch
+          onPress={() => {
+            props.navigation.navigate('Campaign', { title: 'juanpro Deals Vendors' });
+          }}
         />
 
         {/* Daily deals */}
@@ -407,21 +453,23 @@ const Home = (props) => {
             }}
           >
             <HStack space="2">
-              <DailyDealsCard cover="https://images.deliveryhero.io/image/fd-ph/campaign-assets/4b95b37e-f052-11ec-9b58-8aafc25a6d12/desktop_tile_EnOHjf.png?height=240&quality=95&width=560&" />
-              <DailyDealsCard cover="https://images.deliveryhero.io/image/fd-ph/campaign-assets/628ada05-eff9-11ec-a091-d2d0972c390a/desktop_tile_EnCiSG.png?height=240&quality=95&width=560&" />
-              <DailyDealsCard cover="https://images.deliveryhero.io/image/fd-ph/campaign-assets/fe845d67-e198-11ec-b49c-3a1fd50ff438/desktop_tile_Enxdey.png?height=240&quality=95&width=560&" />
+              {dailyDeals.map((item, index) => {
+                return <DailyDealCard key={index} title={item.title} cover={item.cover} navigation={props.navigation} />
+              })}
             </HStack>
           </ScrollView>
         </Stack>
 
-        <HomeCard
+        <HomeItem
           m="4" mb="6"
           title="Play and win prizes!"
+          titleSize="md"
           subtitle="Get rewards now"
+          stretch
         />
 
         {/* Rate orders */}
-        <RateOrderCarousel mb="4" data={rateOrderItems} />
+        <RateOrderCarousel mb="4" data={restaurants} navigation={props.navigation} />
 
       </Layout>
     </>

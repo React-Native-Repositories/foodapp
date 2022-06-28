@@ -1,6 +1,5 @@
 import React from 'react';
 import { VStack, View, Heading, Text, Button } from 'native-base';
-import Layout from '../components/Layout';
 import AppHeader from '../components/headers/AppHeader';
 
 const Cart = (props) => {
