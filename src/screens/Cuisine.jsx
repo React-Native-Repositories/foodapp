@@ -3,6 +3,7 @@ import { VStack } from 'native-base';
 import Layout from '../components/Layout';
 import AppHeader from '../components/headers/AppHeader';
 import RestaurantCard from '../components/RestaurantCard';
+import * as Data from '../data';
 
 const Cuisine = (props) => {
   const { title } = props.route.params;
@@ -11,35 +12,21 @@ const Cuisine = (props) => {
       <AppHeader title={title} {...props} />
       <Layout p="4">
         <VStack space="2">
-          <RestaurantCard
-            title="McDonald's - Manila"
-            discount="P70 OFF, Min. P499"
-            discountSub="Up to P100 OFF #BetterWithCoke"
-            subtitle="PP Fast Food, American, Chicken, R..."
-            deliveryFee="P 34 delivery fee"
-            deliveryTime="20 min"
-            cover="https://images.deliveryhero.io/image/fd-ph/LH/hyii-listing.jpg?width=400&height=292"
-            maxW="full"
-          />
-          <RestaurantCard
-            title="Jollibee - Manila"
-            discount="50% OFF"
-            subtitle="PPP Fast Food, Chicken, Rice Dish..."
-            deliveryFee="P 34 delivery fee"
-            deliveryTime="20 min"
-            cover="https://images.deliveryhero.io/image/fd-ph/LH/r1kb-listing.jpg?width=400&height=292"
-            maxW="full"
-          />
-          <RestaurantCard
-            title="KFC - Manila"
-            discount="P70 OFF, Min. P499"
-            discountSub="Up to P100 OFF #BetterWithCoke"
-            subtitle="PPP Fast Food, Chicken, Rice Dish..."
-            deliveryFee="P 34 delivery fee"
-            deliveryTime="20 min"
-            cover="https://images.deliveryhero.io/image/fd-ph/LH/v2ms-listing.jpg?width=400&height=292"
-            maxW="full"
-          />
+          {Data.restaurants.map((item, index) => {
+            return (
+              <RestaurantCard
+                key={'restaurant'+index}
+                title={item.title}
+                subtitle={item.subtitle}
+                promo1={item.promo1}
+                promo2={item.promo2}
+                deliveryFee={item.deliveryFee}
+                deliveryTime={item.deliveryTime}
+                cover={item.cover}
+                maxW="full"
+              />
+            );
+          })}
         </VStack>
       </Layout>
     </>

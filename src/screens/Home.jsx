@@ -17,38 +17,9 @@ import AnimatedPressableCard from '../components/AnimatedPressableCard';
 import RestaurantCard from '../components/RestaurantCard';
 import Layout from '../components/Layout';
 import HomeHeader from '../components/headers/HomeHeader';
+import * as Data from '../data';
 
 const { width: PAGE_WIDTH } = Dimensions.get('window');
-
-const restaurants = [
-  {
-    title: "McDonald's - Manila",
-    cover: "https://images.deliveryhero.io/image/fd-ph/LH/hyii-listing.jpg?width=400&height=292"
-  },
-  {
-    title: "Jolibee - Manila",
-    cover: "https://images.deliveryhero.io/image/fd-ph/LH/r1kb-listing.jpg?width=400&height=292"
-  },
-  {
-    title: "KFC - Manila",
-    cover: "https://images.deliveryhero.io/image/fd-ph/LH/v2ms-listing.jpg?width=400&height=292"
-  }
-];
-
-const dailyDeals = [
-  {
-    title: "Low Delivery Fee",
-    cover: "https://images.deliveryhero.io/image/fd-ph/campaign-assets/4b95b37e-f052-11ec-9b58-8aafc25a6d12/mobile_tile_EnJUpA.png?height=352&quality=95&width=288&"
-  },
-  {
-    title: "McDonald's",
-    cover: "https://images.deliveryhero.io/image/fd-ph/campaign-assets/628ada05-eff9-11ec-a091-d2d0972c390a/mobile_tile_EnuiMP.png?height=352&quality=95&width=288&"
-  },
-  {
-    title: "88FOOD",
-    cover: "https://images.deliveryhero.io/image/fd-ph/campaign-assets/fe845d67-e198-11ec-b49c-3a1fd50ff438/mobile_tile_Enaukt.png?height=352&quality=95&width=288&"
-  }
-];
 
 const HomeItem = (props) => {
   return (
@@ -195,11 +166,11 @@ const RateOrderCarousel = (props) => {
         decelerationRate={"fast"}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
-            return <RateOrderCard data={item} w={PAGE_WIDTH-32} mx="4" navigation={props.navigation} />
+          return <RateOrderCard data={item} w={PAGE_WIDTH-32} mx="4" navigation={props.navigation} />
         }}
         onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            {useNativeDriver: false}
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          {useNativeDriver: false}
         )}
       />
       <View flexDirection="row" justifyContent="center" mt="1">
@@ -227,37 +198,37 @@ const Home = (props) => {
       <HomeHeader {...props} />
       <Layout>
 
-        {/* Home items */}
+        {/* Home navigation */}
         <Box bg="blueGray.100" p="4">
           <VStack space="2">
             <HStack space="2">
               <HomeItem
-                cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_restaurants_0322.png"
-                coverBottom="-158"
-                title="Food delivery"
-                subtitle="Order food you love"
+                title={Data.homeNavItems[0].title}
+                subtitle={Data.homeNavItems[0].subtitle}
+                cover={Data.homeNavItems[0].cover}
                 subTitleMuted
+                coverBottom="-158"
                 w="1/2"
                 column
               />
               <VStack w="full" pr="4" space="2">
                 <HomeItem
-                  cover="https://images.deliveryhero.io/image/darkstores/categoryimages25mar2022/24.%20Fruits%20&%20Vegetables.png?height=104&dpi=1"
+                  title={Data.homeNavItems[1].title}
+                  subtitle={Data.homeNavItems[1].subtitle}
+                  cover={Data.homeNavItems[1].cover}
+                  titleSize="md"
+                  subTitleMuted
                   coverSize="1/2"
                   coverBottom="-86"
-                  title="juanmart"
-                  titleSize="md"
-                  subtitle="Groceries in 20+ mins"
-                  subTitleMuted
                   w="1/2"
                   h="32"
                   column
                 />
                 <HomeItem
-                  cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_shops_0322.png"
-                  title="Shops"
+                  title={Data.homeNavItems[2].title}
+                  subtitle={Data.homeNavItems[2].subtitle}
+                  cover={Data.homeNavItems[2].cover}
                   titleSize="md"
-                  subtitle="Groceries and more"
                   subTitleMuted
                   w="1/2"
                 />
@@ -265,19 +236,19 @@ const Home = (props) => {
             </HStack>
             <HStack space="2">
               <HomeItem
-                cover="https://images.deliveryhero.io/image/foodpanda/vertical-switcher/ph/dine_in.png"
-                title="Dine-in"
+                title={Data.homeNavItems[3].title}
+                subtitle={Data.homeNavItems[3].subtitle}
+                cover={Data.homeNavItems[3].cover}
                 titleSize="md"
-                subtitle="Eating out? Enjoy 25% OFF"
                 subTitleMuted
                 w="1/2"
               />
               <VStack w="full" pr="4" space="2">
                 <HomeItem
-                  cover="https://images.deliveryhero.io/image/foodpanda/bd/homescreen/APAC_Rebrand%202021_Navigation%20tiles/BD_pickup.png"
-                  title="Pick-up"
+                  title={Data.homeNavItems[4].title}
+                  subtitle={Data.homeNavItems[4].subtitle}
+                  cover={Data.homeNavItems[4].cover}
                   titleSize="md"
-                  subtitle="Get unli savings"
                   subTitleMuted
                   w="1/2"
                 />
@@ -300,32 +271,20 @@ const Home = (props) => {
             }}
           >
             <HStack space="2">
-              <RestaurantCard
-                title="McDonald's - Manila"
-                discount="P70 OFF, Min. P499"
-                discountSub="Up to P100 OFF #BetterWithCoke"
-                subtitle="PP Fast Food, American, Chicken, R..."
-                deliveryFee="P 34 delivery fee"
-                deliveryTime="20 min"
-                cover="https://images.deliveryhero.io/image/fd-ph/LH/hyii-listing.jpg?width=400&height=292"
-              />
-              <RestaurantCard
-                title="Jollibee - Manila"
-                discount="50% OFF"
-                subtitle="PPP Fast Food, Chicken, Rice Dish..."
-                deliveryFee="P 34 delivery fee"
-                deliveryTime="20 min"
-                cover="https://images.deliveryhero.io/image/fd-ph/LH/r1kb-listing.jpg?width=400&height=292"
-              />
-              <RestaurantCard
-                title="KFC - Manila"
-                discount="P70 OFF, Min. P499"
-                discountSub="Up to P100 OFF #BetterWithCoke"
-                subtitle="PPP Fast Food, Chicken, Rice Dish..."
-                deliveryFee="P 34 delivery fee"
-                deliveryTime="20 min"
-                cover="https://images.deliveryhero.io/image/fd-ph/LH/v2ms-listing.jpg?width=400&height=292"
-              />
+              {Data.restaurants.map((item, index) => {
+                return (
+                  <RestaurantCard
+                    key={'restaurant'+index}
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    promo1={item.promo1}
+                    promo2={item.promo2}
+                    deliveryFee={item.deliveryFee}
+                    deliveryTime={item.deliveryTime}
+                    cover={item.cover}
+                  />
+                );
+              })}
             </HStack>
           </ScrollView>
         </Stack>
@@ -345,83 +304,28 @@ const Home = (props) => {
           >
             <VStack space="2">
               <HStack space="2">
-                <CuisineCard
-                  title="Fast Food"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/65.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="American"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/66.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Beverages"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/68.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Japanese"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/51.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Congee"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1088.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Asian"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/54.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Bowl"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1096.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Cakes"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1107.png"
-                  navigation={props.navigation}
-                />
+                {Data.cuisines.row1.map((item, index) => {
+                  return (
+                    <CuisineCard
+                      key={'cuisineA'+index}
+                      title={item.title}
+                      cover={item.cover}
+                      navigation={props.navigation}
+                    />
+                  );
+                })}
               </HStack>
               <HStack space="2">
-                <CuisineCard
-                  title="Burgers"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/64.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Coffee"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1101.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Pizza"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/52.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Chicken"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/79.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Drinks"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/72.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Australian"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/104.png"
-                  navigation={props.navigation}
-                />
-                <CuisineCard
-                  title="Bread"
-                  cover="https://images.deliveryhero.io/image/foodpanda/cuisine-images/PH/1106.png"
-                  navigation={props.navigation}
-                />
+                {Data.cuisines.row2.map((item, index) => {
+                  return (
+                    <CuisineCard
+                      key={'cuisineB'+index}
+                      title={item.title}
+                      cover={item.cover}
+                      navigation={props.navigation}
+                    />
+                  );
+                })}
               </HStack>
             </VStack>
           </ScrollView>
@@ -453,8 +357,15 @@ const Home = (props) => {
             }}
           >
             <HStack space="2">
-              {dailyDeals.map((item, index) => {
-                return <DailyDealCard key={index} title={item.title} cover={item.cover} navigation={props.navigation} />
+              {Data.dailyDeals.map((item, index) => {
+                return (
+                  <DailyDealCard
+                    key={'deal'+index}
+                    title={item.title}
+                    cover={item.cover}
+                    navigation={props.navigation}
+                  />
+                );
               })}
             </HStack>
           </ScrollView>
@@ -469,7 +380,7 @@ const Home = (props) => {
         />
 
         {/* Rate orders */}
-        <RateOrderCarousel mb="4" data={restaurants} navigation={props.navigation} />
+        <RateOrderCarousel mb="4" data={Data.restaurants} navigation={props.navigation} />
 
       </Layout>
     </>
