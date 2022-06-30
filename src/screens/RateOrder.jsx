@@ -15,21 +15,21 @@ import Feather from 'react-native-vector-icons/Feather';
 
 const Rating = (props) => {
   return (
-    <HStack space="0.5" {...props}>
-      <Box w="1/5" py="3" px="6" bg="rose.100" borderLeftRadius="20">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" />
+    <HStack justifyContent="space-between" space="0.5" left="-3" {...props}>
+      <Box py="3" w="1/5" alignItems="center" bg="rose.100" borderLeftRadius="20">
+        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box w="1/5" py="3" px="6" bg="rose.100">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" />
+      <Box py="3" w="1/5" alignItems="center" bg="rose.100">
+        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box w="1/5" py="3" px="6" bg="rose.100">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" />
+      <Box py="3" w="1/5" alignItems="center" bg="rose.100">
+        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box w="1/5" py="3" px="6" bg="rose.100">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" />
+      <Box py="3" w="1/5" alignItems="center" bg="rose.100">
+        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box w="1/5" py="3" px="6" bg="rose.100" borderRightRadius="20">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" />
+      <Box py="3" w="1/5" alignItems="center" bg="rose.100" borderRightRadius="20">
+        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
       </Box>
     </HStack>
   );
