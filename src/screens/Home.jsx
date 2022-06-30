@@ -12,11 +12,12 @@ import {
   Image,
   ScrollView
 } from 'native-base';
+import SearchHeader from '../components/headers/SearchHeader';
+import Layout from '../components/Layout';
 import AnimatedPressable from '../components/AnimatedPressable';
 import AnimatedPressableCard from '../components/AnimatedPressableCard';
 import RestaurantCard from '../components/RestaurantCard';
-import Layout from '../components/Layout';
-import HomeHeader from '../components/headers/HomeHeader';
+import DealCard from '../components/DealCard';
 import * as Data from '../data';
 
 const { width: PAGE_WIDTH } = Dimensions.get('window');
@@ -30,6 +31,11 @@ const HomeItem = (props) => {
         py: props.stretch ? '4' : '2',
         p: '0',
         pl: '4'
+      }}
+      onPress={() => {
+        if (props.routeName) {
+          props.navigation.navigate(props.routeName);
+        }
       }}
       {...props}
     >
@@ -79,12 +85,12 @@ const CuisineCard = (props) => {
       }}
     >
       <Box
-        {...props}
         bg="blueGray.200"
         borderRadius="10"
         overflow="hidden"
         w="80px"
         maxW="100"
+        {...props}
       >
         <AspectRatio w="full" ratio={1}>
           <Image
@@ -95,25 +101,6 @@ const CuisineCard = (props) => {
       </Box>
       <Text fontSize="xs" alignSelf="center" pb="4" bold>{props.title}</Text>
     </AnimatedPressable>
-  );
-}
-
-const DailyDealCard = (props) => {
-  return (
-    <AnimatedPressableCard
-      maxW="150"
-      onPress={() => {
-        props.navigation.navigate('Campaign', { title: props.title });
-      }}
-      {...props}
-    >
-      <AspectRatio w="full" ratio={500/611}>
-        <Image
-          source={{ uri: props.cover }}
-          alt="cover" size="full"
-        />
-      </AspectRatio>
-    </AnimatedPressableCard>
   );
 }
 
@@ -195,7 +182,7 @@ const RateOrderCarousel = (props) => {
 const Home = (props) => {
   return (
     <>
-      <HomeHeader {...props} />
+      <SearchHeader subtitle="Manila" rightNav {...props} />
       <Layout>
 
         {/* Home navigation */}
@@ -206,6 +193,8 @@ const Home = (props) => {
                 title={Data.homeNavItems[0].title}
                 subtitle={Data.homeNavItems[0].subtitle}
                 cover={Data.homeNavItems[0].cover}
+                routeName={Data.homeNavItems[0].routeName}
+                navigation={props.navigation}
                 subTitleMuted
                 coverBottom="-158"
                 w="1/2"
@@ -216,6 +205,8 @@ const Home = (props) => {
                   title={Data.homeNavItems[1].title}
                   subtitle={Data.homeNavItems[1].subtitle}
                   cover={Data.homeNavItems[1].cover}
+                  routeName={Data.homeNavItems[1].routeName}
+                  navigation={props.navigation}
                   titleSize="md"
                   subTitleMuted
                   coverSize="1/2"
@@ -228,6 +219,8 @@ const Home = (props) => {
                   title={Data.homeNavItems[2].title}
                   subtitle={Data.homeNavItems[2].subtitle}
                   cover={Data.homeNavItems[2].cover}
+                  routeName={Data.homeNavItems[2].routeName}
+                  navigation={props.navigation}
                   titleSize="md"
                   subTitleMuted
                   w="1/2"
@@ -239,6 +232,8 @@ const Home = (props) => {
                 title={Data.homeNavItems[3].title}
                 subtitle={Data.homeNavItems[3].subtitle}
                 cover={Data.homeNavItems[3].cover}
+                routeName={Data.homeNavItems[3].routeName}
+                navigation={props.navigation}
                 titleSize="md"
                 subTitleMuted
                 w="1/2"
@@ -248,6 +243,8 @@ const Home = (props) => {
                   title={Data.homeNavItems[4].title}
                   subtitle={Data.homeNavItems[4].subtitle}
                   cover={Data.homeNavItems[4].cover}
+                  routeName={Data.homeNavItems[4].routeName}
+                  navigation={props.navigation}
                   titleSize="md"
                   subTitleMuted
                   w="1/2"
@@ -359,7 +356,7 @@ const Home = (props) => {
             <HStack space="2">
               {Data.dailyDeals.map((item, index) => {
                 return (
-                  <DailyDealCard
+                  <DealCard
                     key={'deal'+index}
                     title={item.title}
                     cover={item.cover}

@@ -9,58 +9,63 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PressableRow from '../components/PressableRow';
 import HomeNavigator from './HomeNavigator';
+import AuthActionsheet from '../components/AuthActionsheet';
 
 const Drawer = createDrawerNavigator();
 
 const AppNavigator = () => {
   const {colorMode} = useColorMode();
+  const authSheet = React.useRef(null);
   return (
     <NavigationContainer theme={colorMode === 'light' ? DefaultTheme : DarkTheme}>
       <StatusBar backgroundColor="#D70F64" />
       <Drawer.Navigator
         drawerContent={props => (
-          <DrawerContentScrollView {...props}>
+          <>
+            <AuthActionsheet ref={authSheet} {...props} />
+            <DrawerContentScrollView {...props}>
 
-            <View style={styles.header}>
-              <View style={styles.headerContent}>
-                <Pressable>
-                  <Text style={styles.headerText}>Log in / Create account</Text>
-                </Pressable>
+              <View style={styles.header}>
+                <View style={styles.headerContent}>
+                  <Pressable onPress={() => authSheet.current.open()}>
+                    <Text style={styles.headerText}>Log in / Create account</Text>
+                  </Pressable>
+                </View>
               </View>
-            </View>
 
-            <View>
-              <PressableRow leftIcon={<Feather name="heart" style={styles.drawerIcon} />}>
-                Favorites
-              </PressableRow>
-              <PressableRow leftIcon={<Ionicons name="receipt-outline" style={styles.drawerIcon} />}>
-                Orders & reordering
-              </PressableRow>
-              <PressableRow leftIcon={<Ionicons name="person-outline" style={styles.drawerIcon} />}>
-                Profile
-              </PressableRow>
-              <PressableRow leftIcon={<Ionicons name="location-outline" style={styles.drawerIcon} />}>
-                Addresses
-              </PressableRow>
-              <PressableRow leftIcon={<Ionicons name="trophy-outline" style={styles.drawerIcon} />}>
-                Challenges & rewards
-              </PressableRow>
-              <PressableRow leftIcon={<MaterialCommunityIcons name="ticket-confirmation-outline" style={styles.drawerIcon} />}>
-                Vouchers
-              </PressableRow>
-              <PressableRow leftIcon={<AntDesign name="questioncircleo" style={styles.drawerIcon} />}>
-                Help center
-              </PressableRow>
-              <PressableRow leftIcon={<AntDesign name="gift" style={styles.drawerIcon} />}>
-                Invite friends
-              </PressableRow>
+              <View>
+                <PressableRow leftIcon={<Feather name="heart" style={styles.drawerIcon} />}>
+                  Favorites
+                </PressableRow>
+                <PressableRow leftIcon={<Ionicons name="receipt-outline" style={styles.drawerIcon} />}>
+                  Orders & reordering
+                </PressableRow>
+                <PressableRow leftIcon={<Ionicons name="person-outline" style={styles.drawerIcon} />}>
+                  Profile
+                </PressableRow>
+                <PressableRow leftIcon={<Ionicons name="location-outline" style={styles.drawerIcon} />}>
+                  Addresses
+                </PressableRow>
+                <PressableRow leftIcon={<Ionicons name="trophy-outline" style={styles.drawerIcon} />}>
+                  Challenges & rewards
+                </PressableRow>
+                <PressableRow leftIcon={<MaterialCommunityIcons name="ticket-confirmation-outline" style={styles.drawerIcon} />}>
+                  Vouchers
+                </PressableRow>
+                <PressableRow leftIcon={<AntDesign name="questioncircleo" style={styles.drawerIcon} />}>
+                  Help center
+                </PressableRow>
+                <PressableRow leftIcon={<AntDesign name="gift" style={styles.drawerIcon} />}>
+                  Invite friends
+                </PressableRow>
 
-              <Box h="1px" bg="gray.200" />
-              <PressableRow>Settings</PressableRow>
-              <PressableRow>Terms & Conditions / Privacy</PressableRow>
-            </View>
-            
-          </DrawerContentScrollView>
+                <Box h="1px" bg="gray.200" />
+                <PressableRow>Settings</PressableRow>
+                <PressableRow>Terms & Conditions / Privacy</PressableRow>
+              </View>
+              
+            </DrawerContentScrollView>
+          </>
         )}
         screenOptions={{
           headerShown: false,

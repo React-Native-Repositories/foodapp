@@ -27,31 +27,69 @@ export const restaurants = [
   }
 ];
 
+export const shops = [
+  {
+    title: "Shell Select - Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/ppo8-listing.jpg?width=400&height=292",
+    cost: "PP",
+    deliveryFee: "49"
+  },
+  {
+    title: "7-Eleven - Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/f5la-listing.jpg?width=400&height=292",
+    cost: "PP",
+    deliveryFee: "P 49",
+  },
+  {
+    title: "Fresh Options Meatshop - Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/cbmb-listing.jpg?width=400&height=292",
+    cost: "P",
+    deliveryFee: "P 49",
+  },
+  {
+    title: "Julie's Bakeshop - Waltermart Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/z47r-listing.jpg?width=400&height=292",
+    cost: "P",
+    deliveryFee: "P 69",
+  },
+  {
+    title: "All Day Supermarket - Manila",
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/fr4z-listing.jpg?width=400&height=292",
+    cost: "PP",
+    deliveryFee: "P 49"
+  }
+]
+
 export const homeNavItems = [
   {
     title: "Food delivery",
     subtitle: "Order food you love",
-    cover: "https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_restaurants_0322.png"
+    cover: "https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_restaurants_0322.png",
+    routeName: "Restaurants"
   },
   {
     title: "juanmart",
     subtitle: "Groceries in 20+ mins",
-    cover: "https://images.deliveryhero.io/image/darkstores/categoryimages25mar2022/24.%20Fruits%20&%20Vegetables.png?height=104&dpi=1"
+    cover: "https://images.deliveryhero.io/image/darkstores/categoryimages25mar2022/24.%20Fruits%20&%20Vegetables.png?height=104&dpi=1",
+    routeName: "JuanMart"
   },
   {
     title: "Shops",
     subtitle: "Groceries and more",
-    cover: "https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_shops_0322.png"
+    cover: "https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_shops_0322.png",
+    routeName: "Shops"
   },
   {
     title: "Dine-in",
     subtitle: "Eating out? Enjoy 25% OFF",
-    cover: "https://images.deliveryhero.io/image/foodpanda/vertical-switcher/ph/dine_in.png"
+    cover: "https://images.deliveryhero.io/image/foodpanda/vertical-switcher/ph/dine_in.png",
+    routeName: "DineIn"
   },
   {
     title: "Pick-up",
     subtitle: "Get unli savings",
-    cover: "https://images.deliveryhero.io/image/foodpanda/bd/homescreen/APAC_Rebrand%202021_Navigation%20tiles/BD_pickup.png"
+    cover: "https://images.deliveryhero.io/image/foodpanda/bd/homescreen/APAC_Rebrand%202021_Navigation%20tiles/BD_pickup.png",
+    routeName: "Pickup"
   }
 ];
 

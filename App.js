@@ -8,9 +8,15 @@ const theme = extendTheme({
   }
 });
 
+const config = {
+  dependencies: {
+    "linear-gradient": require("expo-linear-gradient").LinearGradient
+  }
+};
+
 const App = () => {
   return (
-    <NativeBaseProvider theme={theme}>
+    <NativeBaseProvider theme={theme} config={config}>
       <AppNavigator />
     </NativeBaseProvider>
   );
