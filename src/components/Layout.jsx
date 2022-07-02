@@ -7,7 +7,7 @@ const Layout = (props) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         _contentContainerStyle={{ p: props.p }}
-        _light={{ bg: "white" }}
+        {...props}
       >
         {props.children}
       </ScrollView>
