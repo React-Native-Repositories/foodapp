@@ -10,7 +10,7 @@ const Campaign = (props) => {
   return (
     <>
       <AppHeader title={title} bg="white" {...props} />
-      <Layout bg="white" p="4">
+      <Layout bg="white" p="2">
         <VStack space="2">
           {Data.restaurants.map((item, index) => {
             return (

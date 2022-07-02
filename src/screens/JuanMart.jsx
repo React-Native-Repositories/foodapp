@@ -6,7 +6,7 @@ const JuanMart = (props) => {
   return (
     <>
       <AppHeader title="juanmart" bg="white" {...props} />
-      <Layout bg="white" p="4">
+      <Layout bg="white">
       </Layout>
     </>
   );
