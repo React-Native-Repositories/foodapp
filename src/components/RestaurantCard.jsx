@@ -24,7 +24,7 @@ const RestaurantCard = (props) => {
           </AspectRatio>
           {props.promo1 &&
           <Box
-            bg="#D70F64"
+            bg="primary.600"
             position="absolute"
             top="1.5"
             px="1.5"
@@ -35,7 +35,7 @@ const RestaurantCard = (props) => {
           </Box>}
           {props.promo2 &&
           <Box
-            bg="#D70F64"
+            bg="primary.600"
             position="absolute"
             top="9"
             px="1.5"

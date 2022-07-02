@@ -20,15 +20,15 @@ const AuthSheetItem = (props) => {
     <Pressable>
       <Box
         w="full"
-        p="3"
+        p="3.5"
         alignItems="center"
-        shadow={props.type === 'email' ? "none" : "2"}
+        shadow="1"
         borderWidth={props.type === 'email' ? "1" : "0"}
-        borderColor={props.type === 'email' ? "#D70F64" : "white"}
+        borderColor={props.type === 'email' ? "primary.600" : "white"}
         borderRadius="10"
         bg={props.type === 'Facebook' ? "#1877F2" : "white"}
       >
-        <Box position="absolute" left="3" top="1/2">
+        <Box position="absolute" left="3" top="3.5">
           {(props.type === 'Google') && <GoogleIcon />}
           {(props.type === 'Facebook') && <FacebookIcon />}
         </Box>
@@ -36,7 +36,7 @@ const AuthSheetItem = (props) => {
           color={
             props.type === 'Google' ? "gray.500" :
             props.type === 'Facebook' ? "white" :
-            "#D70F64"
+            "primary.600"
           }
           bold
         >
@@ -62,23 +62,23 @@ const AuthActionsheet = forwardRef((props, ref) => {
       isOpen={isOpen}
       onClose={onClose}
       hideDragIndicator
-      rounded="0"
     >
       <Actionsheet.Content
         alignItems="flex-start"
-        roundedTop="8"
+        roundedTop="2xl"
         px="4" py="0"
+        bg="white"
       >
-        <VStack space="1" mt="4" w="full">
+        <VStack mt="4" w="full">
           <IconButton
             alignSelf="flex-end"
-            p="0"
+            p="0" mb="-1"
             borderRadius="full"
             icon={
               <Icon
                 as={Ionicons}
-                size="md"
-                color="#D70F64"
+                size="21px"
+                color="primary.600"
                 name="close-outline"
               />
             }
@@ -86,23 +86,23 @@ const AuthActionsheet = forwardRef((props, ref) => {
           />
           <Heading>Sign up or log in</Heading>
         </VStack>
-        <VStack space="3" my="5" w="full">
+        <VStack space="3.5" my="4" w="full">
           <AuthSheetItem type="Google" />
           <AuthSheetItem type="Facebook" />
           <HStack alignItems="center" justifyContent="space-between" space="1">
-            <Box flex="1" h="1px" borderWidth="1" borderColor="gray.200" />
+            <Box flex="1" h="1px" bg="gray.200" />
             <Text bold>or</Text>
-            <Box flex="1" h="1px" borderWidth="1" borderColor="gray.200" />
+            <Box flex="1" h="1px" bg="gray.200" />
           </HStack>
           <AuthSheetItem type="email" />
           <HStack w="full" justifyContent="center">
             <Text fontSize="10" color="gray.500" mr="0.5" bold>By continuing, you agree to our</Text>
             <Pressable>
-              <Text fontSize="10" color="#D70F64" mr="0.5" bold>Terms and Conditions</Text>
+              <Text fontSize="10" color="primary.600" mr="0.5" bold>Terms and Conditions</Text>
             </Pressable>
             <Text fontSize="10" color="gray.500" mr="0.5" bold>and</Text>
             <Pressable>
-              <Text fontSize="10" color="#D70F64" bold>Privacy Policy</Text>
+              <Text fontSize="10" color="primary.600" bold>Privacy Policy</Text>
             </Pressable>
             <Text fontSize="10" color="gray.500" bold>.</Text>
           </HStack>

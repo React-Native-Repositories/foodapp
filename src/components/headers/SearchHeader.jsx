@@ -17,7 +17,7 @@ const SearchHeader = (props) => {
     <VStack
       pt="2" pb="4"
       px={{ base: 4, md: 8 }}
-      bg={isHome ? "#D70F64" : "white"}
+      bg={isHome ? "primary.600" : "white"}
       shadow="4"
       space="2"
       {...props}
@@ -33,7 +33,7 @@ const SearchHeader = (props) => {
                 as={Ionicons}
                 size="lg"
                 name={isHome ? "menu" : "arrow-back-outline"}
-                color={isHome ? "white" : "#D70F64"}
+                color={isHome ? "white" : "primary.600"}
               />
             }
             onPress={() => {
@@ -54,7 +54,7 @@ const SearchHeader = (props) => {
           <IconButton
             p="1"
             borderRadius="full"
-            icon={<Icon as={Feather} size="md" name="heart" color={isHome ? "white" : "#D70F64"} />}
+            icon={<Icon as={Feather} size="md" name="heart" color={isHome ? "white" : "primary.600"} />}
             onPress={() => {
               // props.navigation.navigate('Favorites');
             }}
@@ -62,7 +62,7 @@ const SearchHeader = (props) => {
           <IconButton
             p="1"
             borderRadius="full"
-            icon={<Icon as={Feather} size="md" name="shopping-bag" color={isHome ? "white" : "#D70F64"} />}
+            icon={<Icon as={Feather} size="md" name="shopping-bag" color={isHome ? "white" : "primary.600"} />}
             onPress={() => {
               props.navigation.navigate('Cart');
             }}
@@ -87,7 +87,7 @@ const SearchHeader = (props) => {
         <IconButton
           p="1"
           borderRadius="full"
-          icon={<Icon as={Feather} size="md" name="filter" color={isHome ? "white" : "#D70F64"} />}
+          icon={<Icon as={Feather} size="md" name="filter" color={isHome ? "white" : "primary.600"} />}
           onPress={() => {
             // props.navigation.navigate('Filter');
           }}

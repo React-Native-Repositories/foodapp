@@ -5,7 +5,7 @@ import AppHeader from '../components/headers/AppHeader';
 const JuanMart = (props) => {
   return (
     <>
-      <AppHeader title="juanmart" {...props} />
+      <AppHeader title="juanmart" bg="white" {...props} />
       <Layout p="4">
       </Layout>
     </>

@@ -5,7 +5,7 @@ import AppHeader from '../components/headers/AppHeader';
 const Cart = (props) => {
   return (
     <>
-      <AppHeader {...props} close />
+      <AppHeader bg="white" close {...props} />
       <View flex={1} justifyContent="center" alignItems="center" _light={{ bg: 'white' }}>
         <VStack space="2" alignItems="center">
           <Heading>Hungry?</Heading>
@@ -13,7 +13,6 @@ const Cart = (props) => {
           <Button
             mt="1"
             p="1" px="2.5"
-            bg="#D70F64"
             borderRadius="md"
           >
             <Text color="white" bold>Browse</Text>

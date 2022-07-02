@@ -10,7 +10,6 @@ const AppHeader = (props) => {
       alignItems="center"
       justifyContent="space-between"
       px={{ base: 4, md: 8 }}
-      _light={{ bg: 'white' }}
       {...props}
     >
       <HStack alignItems="center" space="4">
@@ -21,7 +20,7 @@ const AppHeader = (props) => {
             <Icon
               as={Ionicons}
               size="lg"
-              color="#D70F64"
+              color="primary.600"
               name={props.close ? "close-outline" : "arrow-back-outline"}
             />
           }

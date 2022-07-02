@@ -16,20 +16,20 @@ import Feather from 'react-native-vector-icons/Feather';
 const Rating = (props) => {
   return (
     <HStack justifyContent="space-between" space="0.5" left="-3" {...props}>
-      <Box py="3" w="1/5" alignItems="center" bg="rose.100" borderLeftRadius="20">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
+      <Box py="3" w="1/5" alignItems="center" bg="primary.50" borderLeftRadius="20">
+        <Icon size="md" color="primary.600" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box py="3" w="1/5" alignItems="center" bg="rose.100">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
+      <Box py="3" w="1/5" alignItems="center" bg="primary.50">
+        <Icon size="md" color="primary.600" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box py="3" w="1/5" alignItems="center" bg="rose.100">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
+      <Box py="3" w="1/5" alignItems="center" bg="primary.50">
+        <Icon size="md" color="primary.600" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box py="3" w="1/5" alignItems="center" bg="rose.100">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
+      <Box py="3" w="1/5" alignItems="center" bg="primary.50">
+        <Icon size="md" color="primary.600" as={Feather} name="star" mx="1px" />
       </Box>
-      <Box py="3" w="1/5" alignItems="center" bg="rose.100" borderRightRadius="20">
-        <Icon size="md" color="#D70F64" as={Feather} name="star" mx="1px" />
+      <Box py="3" w="1/5" alignItems="center" bg="primary.50" borderRightRadius="20">
+        <Icon size="md" color="primary.600" as={Feather} name="star" mx="1px" />
       </Box>
     </HStack>
   );
@@ -39,12 +39,7 @@ const RateOrder = (props) => {
   const { data } = props.route.params;
   return (
     <>
-      <AppHeader
-        title="Rate your order"
-        shadow="none"
-        _light={{ bg: 'gray.100' }}
-        {...props}
-      />
+      <AppHeader title="Rate your order" shadow="none" {...props} />
       <View flex={1} p="4">
         <HStack>
           <VStack w="3/4" space="2">

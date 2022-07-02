@@ -9,7 +9,7 @@ const Cuisine = (props) => {
   const { title } = props.route.params;
   return (
     <>
-      <AppHeader title={title} {...props} />
+      <AppHeader title={title} bg="white" {...props} />
       <Layout p="4">
         <VStack space="2">
           {Data.restaurants.map((item, index) => {

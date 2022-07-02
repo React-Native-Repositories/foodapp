@@ -54,15 +54,15 @@ const ExploreCard = (props) => {
                 as={Ionicons}
                 size="lg"
                 name="arrow-forward-outline"
-                color="#D70F64"
+                color="primary.600"
               />
             </HStack>
           </Box>
         </VStack>
         <HStack mr="4" mt="-1">
-          <Icon as={Ionicons} size="2xl" name="location" color="rose.400" mt="8" />
-          <Icon as={Ionicons} size="2xl" name="location" color="rose.400" />
-          <Icon as={Ionicons} size="2xl" name="location" color="rose.400" mt="4" />
+          <Icon as={Ionicons} size="2xl" name="location" color="primary.300" mt="8" />
+          <Icon as={Ionicons} size="2xl" name="location" color="primary.300" />
+          <Icon as={Ionicons} size="2xl" name="location" color="primary.300" mt="4" />
         </HStack>
       </HStack>
     </AnimatedPressableCard>

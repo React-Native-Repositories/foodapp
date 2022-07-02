@@ -85,7 +85,7 @@ const CuisineCard = (props) => {
       }}
     >
       <Box
-        bg="blueGray.200"
+        bg="blueGray.100"
         borderRadius="10"
         overflow="hidden"
         w="80px"
@@ -125,7 +125,7 @@ const RateOrderCard = (props) => {
           </VStack>
           <Box
             p="1" px="2.5"
-            bg="#D70F64"
+            bg="primary.600"
             alignSelf="flex-start"
             borderRadius="md"
           >

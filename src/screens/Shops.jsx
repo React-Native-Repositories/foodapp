@@ -42,7 +42,7 @@ const ShopCard = (props) => {
           </HStack>
           <Text fontSize="xs">{props.cost}</Text>
           <HStack alignItems="center" space="1">
-            <Icon as={MaterialCommunityIcons} name="bike" size="xs" color="#D70F64" />
+            <Icon as={MaterialCommunityIcons} name="bike" size="xs" color="primary.600" />
             <Text fontSize="xs" color="gray.400">{props.deliveryFee}</Text>
           </HStack>
         </VStack>
