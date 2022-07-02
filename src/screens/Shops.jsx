@@ -54,7 +54,7 @@ const ShopCard = (props) => {
 const Shops = (props) => {
   return (
     <>
-      <SearchHeader subtitle="Shops" searchText="Looking for something?" rightNav filter {...props} />
+      <SearchHeader description="Shops" searchText="Looking for something?" rightNav filter {...props} />
       <Layout>
         
         {/* Daily deals */}

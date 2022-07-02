@@ -21,7 +21,7 @@ import * as Data from '../data';
 const Restaurants = (props) => {
   return (
     <>
-      <SearchHeader subtitle="Food delivery" rightNav filter {...props} />
+      <SearchHeader description="Food delivery" rightNav filter {...props} />
       <Layout>
 
         {/* Daily deals */}
@@ -68,7 +68,7 @@ const Restaurants = (props) => {
                   <RestaurantCard
                     key={'restaurant'+index}
                     title={item.title}
-                    subtitle={item.subtitle}
+                    description={item.description}
                     promo1={item.promo1}
                     promo2={item.promo2}
                     deliveryFee={item.deliveryFee}
@@ -129,7 +129,7 @@ const Restaurants = (props) => {
               <RestaurantCard
                 key={'restaurant'+index}
                 title={item.title}
-                subtitle={item.subtitle}
+                description={item.description}
                 promo1={item.promo1}
                 promo2={item.promo2}
                 deliveryFee={item.deliveryFee}

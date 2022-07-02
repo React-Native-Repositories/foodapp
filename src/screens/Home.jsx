@@ -43,19 +43,19 @@ const HomeItem = (props) => {
       {props.column &&
       <Text
         fontSize="xs"
-        color={props.subTitleMuted ? "gray.500" : "darkText"}
+        color={props.descriptionMuted ? "gray.500" : "darkText"}
         lineHeight="sm"
       >
-        {props.subtitle}
+        {props.description}
       </Text>
       ||
       <VStack w={props.stretch ? "3/4" : "1/2"}>
         <Text
           fontSize="xs"
-          color={props.subTitleMuted ? "gray.500" : "darkText"}
+          color={props.descriptionMuted ? "gray.500" : "darkText"}
           lineHeight="sm"
         >
-          {props.subtitle}
+          {props.description}
         </Text>
       </VStack>
       }
@@ -182,7 +182,7 @@ const RateOrderCarousel = (props) => {
 const Home = (props) => {
   return (
     <>
-      <SearchHeader subtitle="Manila" rightNav {...props} />
+      <SearchHeader description="Manila" rightNav {...props} />
       <Layout>
 
         {/* Home navigation */}
@@ -191,11 +191,11 @@ const Home = (props) => {
             <HStack space="2">
               <HomeItem
                 title={Data.homeNavItems[0].title}
-                subtitle={Data.homeNavItems[0].subtitle}
+                description={Data.homeNavItems[0].description}
                 cover={Data.homeNavItems[0].cover}
                 routeName={Data.homeNavItems[0].routeName}
                 navigation={props.navigation}
-                subTitleMuted
+                descriptionMuted
                 coverBottom="-158"
                 w="1/2"
                 column
@@ -203,12 +203,12 @@ const Home = (props) => {
               <VStack w="full" pr="4" space="2">
                 <HomeItem
                   title={Data.homeNavItems[1].title}
-                  subtitle={Data.homeNavItems[1].subtitle}
+                  description={Data.homeNavItems[1].description}
                   cover={Data.homeNavItems[1].cover}
                   routeName={Data.homeNavItems[1].routeName}
                   navigation={props.navigation}
                   titleSize="md"
-                  subTitleMuted
+                  descriptionMuted
                   coverSize="1/2"
                   coverBottom="-86"
                   w="1/2"
@@ -217,12 +217,12 @@ const Home = (props) => {
                 />
                 <HomeItem
                   title={Data.homeNavItems[2].title}
-                  subtitle={Data.homeNavItems[2].subtitle}
+                  description={Data.homeNavItems[2].description}
                   cover={Data.homeNavItems[2].cover}
                   routeName={Data.homeNavItems[2].routeName}
                   navigation={props.navigation}
                   titleSize="md"
-                  subTitleMuted
+                  descriptionMuted
                   w="1/2"
                 />
               </VStack>
@@ -230,23 +230,23 @@ const Home = (props) => {
             <HStack space="2">
               <HomeItem
                 title={Data.homeNavItems[3].title}
-                subtitle={Data.homeNavItems[3].subtitle}
+                description={Data.homeNavItems[3].description}
                 cover={Data.homeNavItems[3].cover}
                 routeName={Data.homeNavItems[3].routeName}
                 navigation={props.navigation}
                 titleSize="md"
-                subTitleMuted
+                descriptionMuted
                 w="1/2"
               />
               <VStack w="full" pr="4" space="2">
                 <HomeItem
                   title={Data.homeNavItems[4].title}
-                  subtitle={Data.homeNavItems[4].subtitle}
+                  description={Data.homeNavItems[4].description}
                   cover={Data.homeNavItems[4].cover}
                   routeName={Data.homeNavItems[4].routeName}
                   navigation={props.navigation}
                   titleSize="md"
-                  subTitleMuted
+                  descriptionMuted
                   w="1/2"
                 />
               </VStack>
@@ -273,12 +273,15 @@ const Home = (props) => {
                   <RestaurantCard
                     key={'restaurant'+index}
                     title={item.title}
-                    subtitle={item.subtitle}
+                    description={item.description}
                     promo1={item.promo1}
                     promo2={item.promo2}
                     deliveryFee={item.deliveryFee}
                     deliveryTime={item.deliveryTime}
                     cover={item.cover}
+                    onPress={() => {
+                      props.navigation.navigate('Restaurant', { index });
+                    }}
                   />
                 );
               })}
@@ -333,7 +336,7 @@ const Home = (props) => {
           cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/pro.png"
           title="pro perks"
           titleSize="md"
-          subtitle="monthly exclusive deals and FREE..."
+          description="monthly exclusive deals and FREE..."
           stretch
           onPress={() => {
             props.navigation.navigate('Campaign', { title: 'juanpro Deals Vendors' });
@@ -372,7 +375,7 @@ const Home = (props) => {
           m="4" mb="6"
           title="Play and win prizes!"
           titleSize="md"
-          subtitle="Get rewards now"
+          description="Get rewards now"
           stretch
         />
 

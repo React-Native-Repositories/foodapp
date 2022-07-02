@@ -72,7 +72,7 @@ const ExploreCard = (props) => {
 const Pickup = (props) => {
   return (
     <>
-      <SearchHeader subtitle="Pick-Up" rightNav filter {...props} />
+      <SearchHeader description="Pick-Up" rightNav filter {...props} />
       <Layout>
 
         {/* Daily deals */}
@@ -112,7 +112,7 @@ const Pickup = (props) => {
               <RestaurantCard
                 key={'restaurant'+index}
                 title={item.title}
-                subtitle={item.subtitle}
+                description={item.description}
                 promo1={item.promo1}
                 promo2={item.promo2}
                 deliveryFee={item.deliveryFee}

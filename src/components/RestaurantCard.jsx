@@ -4,17 +4,14 @@ import AnimatedPressable from './AnimatedPressable';
 
 const RestaurantCard = (props) => {
   return (
-    <AnimatedPressable>
-      <Box
-        overflow="hidden"
-        maxW="235"
-        {...props}
-      >
+    <AnimatedPressable onPress={props.onPress}>
+      <Box overflow="hidden" maxW="235" {...props}>
         <Box
           bg="white"
           borderWidth="1"
           borderColor="gray.200"
           borderRadius="10"
+          overflow="hidden"
         >
           <AspectRatio w="full" ratio={16/9}>
             <Image
@@ -58,7 +55,7 @@ const RestaurantCard = (props) => {
           </Box>
         </Box>
         <Text fontSize="sm" isTruncated bold>{props.title}</Text>
-        <Text fontSize="sm" isTruncated color="gray.500">{props.subtitle}</Text>
+        <Text fontSize="sm" isTruncated color="gray.500">{props.description}</Text>
         <Text fontSize="xs" bold pb="2">{props.deliveryFee}</Text>
       </Box>
     </AnimatedPressable>

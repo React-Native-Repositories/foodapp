@@ -46,7 +46,7 @@ const SearchHeader = (props) => {
           />
           <VStack>
             <Heading fontSize="md" color={isHome ? "white" : "darkText"}>420 Street</Heading>
-            <Text fontSize="xs" color={isHome ? "white" : "darkText"}>{props.subtitle}</Text>
+            <Text fontSize="xs" color={isHome ? "white" : "darkText"}>{props.description}</Text>
           </VStack>
         </HStack>
         {props.rightNav &&

@@ -17,7 +17,7 @@ const Cuisine = (props) => {
               <RestaurantCard
                 key={'restaurant'+index}
                 title={item.title}
-                subtitle={item.subtitle}
+                description={item.description}
                 promo1={item.promo1}
                 promo2={item.promo2}
                 deliveryFee={item.deliveryFee}

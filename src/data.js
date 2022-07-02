@@ -1,7 +1,7 @@
 export const restaurants = [
   {
     title: "McDonald's - Manila",
-    subtitle: "PP Fast Food, American, Chicken, Rice Dish",
+    description: "PP Fast Food, American, Chicken, Rice Dish",
     promo1: "P70 OFF, Min. P499",
     promo2: "Up to P100 OFF #BetterWithCoke",
     deliveryFee: "P 34 delivery fee",
@@ -10,7 +10,7 @@ export const restaurants = [
   },
   {
     title: "Jollibee - Manila",
-    subtitle: "PPP Fast Food, Chicken, Rice Dish...",
+    description: "PPP Fast Food, Chicken, Rice Dish...",
     promo1: "50% OFF",
     deliveryFee: "P 34 delivery fee",
     deliveryTime: "20 min",
@@ -18,7 +18,7 @@ export const restaurants = [
   },
   {
     title: "KFC - Manila",
-    subtitle: "PPP Fast Food, Chicken, Rice Dish...",
+    description: "PPP Fast Food, Chicken, Rice Dish...",
     promo1: "P70 OFF, Min. P499",
     promo2: "Up to P100 OFF #BetterWithCoke",
     deliveryFee: "P 34 delivery fee",
@@ -63,31 +63,31 @@ export const shops = [
 export const homeNavItems = [
   {
     title: "Food delivery",
-    subtitle: "Order food you love",
+    description: "Order food you love",
     cover: "https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_restaurants_0322.png",
     routeName: "Restaurants"
   },
   {
     title: "juanmart",
-    subtitle: "Groceries in 20+ mins",
+    description: "Groceries in 20+ mins",
     cover: "https://images.deliveryhero.io/image/darkstores/categoryimages25mar2022/24.%20Fruits%20&%20Vegetables.png?height=104&dpi=1",
     routeName: "JuanMart"
   },
   {
     title: "Shops",
-    subtitle: "Groceries and more",
+    description: "Groceries and more",
     cover: "https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/PH_shops_0322.png",
     routeName: "Shops"
   },
   {
     title: "Dine-in",
-    subtitle: "Eating out? Enjoy 25% OFF",
+    description: "Eating out? Enjoy 25% OFF",
     cover: "https://images.deliveryhero.io/image/foodpanda/vertical-switcher/ph/dine_in.png",
     routeName: "DineIn"
   },
   {
     title: "Pick-up",
-    subtitle: "Get unli savings",
+    description: "Get unli savings",
     cover: "https://images.deliveryhero.io/image/foodpanda/bd/homescreen/APAC_Rebrand%202021_Navigation%20tiles/BD_pickup.png",
     routeName: "Pickup"
   }
