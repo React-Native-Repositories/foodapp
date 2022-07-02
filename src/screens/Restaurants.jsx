@@ -22,7 +22,7 @@ const Restaurants = (props) => {
   return (
     <>
       <SearchHeader description="Food delivery" rightNav filter {...props} />
-      <Layout>
+      <Layout bg="white">
 
         {/* Daily deals */}
         <Stack pt="4">

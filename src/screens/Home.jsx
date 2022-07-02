@@ -183,7 +183,7 @@ const Home = (props) => {
   return (
     <>
       <SearchHeader description="Manila" rightNav {...props} />
-      <Layout>
+      <Layout bg="white">
 
         {/* Home navigation */}
         <Box bg="blueGray.100" p="4">

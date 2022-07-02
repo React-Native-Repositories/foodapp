@@ -15,7 +15,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 const Rating = (props) => {
   return (
-    <HStack justifyContent="space-between" space="0.5" left="-3" {...props}>
+    <HStack pr="2" justifyContent="space-between" space="0.5" {...props}>
       <Box py="3" w="1/5" alignItems="center" bg="primary.50" borderLeftRadius="20">
         <Icon size="md" color="primary.600" as={Feather} name="star" mx="1px" />
       </Box>

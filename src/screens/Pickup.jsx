@@ -73,7 +73,7 @@ const Pickup = (props) => {
   return (
     <>
       <SearchHeader description="Pick-Up" rightNav filter {...props} />
-      <Layout>
+      <Layout bg="white">
 
         {/* Daily deals */}
         <Stack pt="4">

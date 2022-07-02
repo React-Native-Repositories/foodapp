@@ -17,7 +17,7 @@ const DineIn = (props) => {
   return (
     <>
       <SearchHeader description="Dine-In" filter {...props} />
-      <Layout>
+      <Layout bg="white">
 
         {/* Daily deals */}
         <Stack pt="4">

@@ -55,7 +55,7 @@ const Shops = (props) => {
   return (
     <>
       <SearchHeader description="Shops" searchText="Looking for something?" rightNav filter {...props} />
-      <Layout>
+      <Layout bg="white">
         
         {/* Daily deals */}
         <Stack pt="4">
