@@ -5,6 +5,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Home from '../screens/Home';
 import Cart from '../screens/Cart';
 import Restaurants from '../screens/Restaurants';
+import Restaurant from '../screens/Restaurant';
 import JuanMart from '../screens/JuanMart';
 import Shops from '../screens/Shops';
 import DineIn from '../screens/DineIn';
@@ -25,6 +26,7 @@ const HomeNavigator = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Cart" component={Cart} />
       <Stack.Screen name="Restaurants" component={Restaurants} />
+      <Stack.Screen name="Restaurant" component={Restaurant} />
       <Stack.Screen name="JuanMart" component={JuanMart} />
       <Stack.Screen name="Shops" component={Shops} />
       <Stack.Screen name="DineIn" component={DineIn} />

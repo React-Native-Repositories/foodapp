@@ -6,7 +6,55 @@ export const restaurants = [
     promo2: "Up to P100 OFF #BetterWithCoke",
     deliveryFee: "P 34 delivery fee",
     deliveryTime: "20 min",
-    cover: "https://images.deliveryhero.io/image/fd-ph/LH/hyii-listing.jpg?width=400&height=292"
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/hyii-listing.jpg?width=400&height=292",
+    dishes: [
+      {
+        title: "Burgers",
+        data: [
+          {
+            title: "Burger McDo Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13639081.jpg?width=200",
+            price: "P 39.00",
+            popular: false
+          },
+          {
+            title: "McCrsipy Chicken Sandwich Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13639083.jpg?width=200",
+            price: "P 49.00",
+            popular: true
+          },
+          {
+            title: "Double Cheeseburger Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13639086.jpg?width=200",
+            price: "P 117.00",
+            popular: true
+          }
+        ]
+      },
+      {
+        title: "Chicken",
+        data: [
+          {
+            title: "McCrispy Chicken Fillet Ala King Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13639121.jpg?width=200",
+            price: "P 65.00",
+            popular: true
+          },
+          {
+            title: "McCripsy Chicken Fillet Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13639122.jpg?width=200",
+            price: "P 62.00",
+            popular: false
+          },
+          {
+            title: "6-pc. Chicken McNuggets Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13639120.jpg?width=200",
+            price: "P 123.00",
+            popular: true
+          }
+        ]
+      }
+    ]
   },
   {
     title: "Jollibee - Manila",
@@ -14,7 +62,55 @@ export const restaurants = [
     promo1: "50% OFF",
     deliveryFee: "P 34 delivery fee",
     deliveryTime: "20 min",
-    cover: "https://images.deliveryhero.io/image/fd-ph/LH/r1kb-listing.jpg?width=400&height=292"
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/r1kb-listing.jpg?width=400&height=292",
+    dishes: [
+      {
+        title: "Chickenjoy",
+        data: [
+          {
+            title: "6pc Chickenjoy w/ Rice & Drinks",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/4128119.jpg?width=200",
+            price: "P 539.00",
+            popular: false
+          },
+          {
+            title: "6pc Chickenjoy Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/4128117.jpg?width=200",
+            price: "P 439.00",
+            popular: true
+          },
+          {
+            title: "8pc Chickenjoy Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/4128123.jpg?width=200",
+            price: "P 549.00",
+            popular: true
+          }
+        ]
+      },
+      {
+        title: "Burgers",
+        data: [
+          {
+            title: "Yumburger, Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/4128137.jpg?width=200",
+            price: "P 43.00",
+            popular: false
+          },
+          {
+            title: "Champ Jr., Fries & Drink",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/4128144.jpg?width=200",
+            price: "P 149.00",
+            popular: true
+          },
+          {
+            title: "Cheesy Yumburger Solo",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/4128140.jpg?width=200",
+            price: "P 61.00",
+            popular: true
+          }
+        ]
+      }
+    ]
   },
   {
     title: "KFC - Manila",
@@ -23,7 +119,55 @@ export const restaurants = [
     promo2: "Up to P100 OFF #BetterWithCoke",
     deliveryFee: "P 34 delivery fee",
     deliveryTime: "20 min",
-    cover: "https://images.deliveryhero.io/image/fd-ph/LH/v2ms-listing.jpg?width=400&height=292"
+    cover: "https://images.deliveryhero.io/image/fd-ph/LH/v2ms-listing.jpg?width=400&height=292",
+    dishes: [
+      {
+        title: "All Chicken Bucket",
+        data: [
+          {
+            title: "Bucket of 6",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/5016187.jpg?width=200",
+            price: "P 459.00",
+            popular: true
+          },
+          {
+            title: "Bucket of 8",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13481167.jpg?width=200",
+            price: "P 549.00",
+            popular: true
+          },
+          {
+            title: "Bucket of 10",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/5016188.jpg?width=200",
+            price: "P 720.00",
+            popular: false
+          }
+        ]
+      },
+      {
+        title: "Fully Loaded",
+        data: [
+          {
+            title: "2 Pcs Fully Loaded Meal",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/5016223.jpg?width=200",
+            price: "P 230.00",
+            popular: true
+          },
+          {
+            title: "1 Pc Fully Loaded Meal",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/5016226.jpg?width=200",
+            price: "P 164.00",
+            popular: true
+          },
+          {
+            title: "Chicken Chops Fully Loaded Meal",
+            cover: "https://images.deliveryhero.io/image/fd-ph/Products/13481238.jpg?width=200",
+            price: "P 194.00",
+            popular: false
+          }
+        ]
+      }
+    ]
   }
 ];
 
