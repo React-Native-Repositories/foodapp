@@ -74,6 +74,9 @@ const Restaurants = (props) => {
                     deliveryFee={item.deliveryFee}
                     deliveryTime={item.deliveryTime}
                     cover={item.cover}
+                    onPress={() => {
+                      props.navigation.navigate('Restaurant', { index });
+                    }}
                   />
                 );
               })}
@@ -136,6 +139,9 @@ const Restaurants = (props) => {
                 deliveryTime={item.deliveryTime}
                 cover={item.cover}
                 maxW="full"
+                onPress={() => {
+                  props.navigation.navigate('Restaurant', { index });
+                }}
               />
             );
           })}

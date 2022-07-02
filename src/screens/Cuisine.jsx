@@ -24,6 +24,9 @@ const Cuisine = (props) => {
                 deliveryTime={item.deliveryTime}
                 cover={item.cover}
                 maxW="full"
+                onPress={() => {
+                  props.navigation.navigate('Restaurant', { index });
+                }}
               />
             );
           })}
