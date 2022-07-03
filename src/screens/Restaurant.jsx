@@ -10,8 +10,9 @@ import {
   Image,
   Icon
 } from 'native-base';
-import Layout from '../components/Layout';
+import RestaurantSkeleton from '../components/skeletons/RestaurantSkeleton';
 import AppHeader from '../components/headers/AppHeader';
+import Layout from '../components/Layout';
 import PopularOrderCard from '../components/PopularOrderCard';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import * as Data from '../data';
@@ -67,9 +68,19 @@ const Dish = (props) => {
 const Restaurant = (props) => {
   const { index } = props.route.params;
   const data = Data.restaurants[index];
+  const [loaded, setLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout( () => {
+      setLoaded(true);
+    },1000);
+  },[])
+
   return (
     <>
-      <AppHeader title="Delivery" bg="white" {...props} />
+      {loaded
+      && <AppHeader title="Delivery" bg="white" {...props} />
+      || <RestaurantSkeleton />}
       {data.dishes && 
       <Layout>
 

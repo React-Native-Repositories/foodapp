@@ -12,8 +12,9 @@ import {
   Image,
   Icon
 } from 'native-base';
-import Layout from '../components/Layout';
 import SearchHeader from '../components/headers/SearchHeader';
+import Layout from '../components/Layout';
+import ShopsSkeleton from '../components/skeletons/ShopsSkeleton';
 import DealCard from '../components/DealCard';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -55,7 +56,7 @@ const Shops = (props) => {
   return (
     <>
       <SearchHeader description="Shops" searchText="Looking for something?" rightNav filter {...props} />
-      <Layout bg="white">
+      <Layout bg="white" skeleton={<ShopsSkeleton />}>
         
         {/* Daily deals */}
         <Stack pt="4">

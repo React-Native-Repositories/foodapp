@@ -11,8 +11,9 @@ import {
   AspectRatio,
   Image
 } from 'native-base';
-import Layout from '../components/Layout';
 import SearchHeader from '../components/headers/SearchHeader';
+import Layout from '../components/Layout';
+import RestaurantsSkeleton from '../components/skeletons/RestaurantsSkeleton';
 import RestaurantCard from '../components/RestaurantCard';
 import DealCard from '../components/DealCard';
 import CuisineCard from '../components/CuisineCard';
@@ -22,7 +23,7 @@ const Restaurants = (props) => {
   return (
     <>
       <SearchHeader description="Food delivery" rightNav filter {...props} />
-      <Layout bg="white">
+      <Layout bg="white" skeleton={<RestaurantsSkeleton />}>
 
         {/* Daily deals */}
         <Stack pt="4">

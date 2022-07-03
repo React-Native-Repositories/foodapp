@@ -12,6 +12,7 @@ import {
   Image,
   ScrollView
 } from 'native-base';
+import HomeSkeleton from '../components/skeletons/HomeSkeleton';
 import SearchHeader from '../components/headers/SearchHeader';
 import Layout from '../components/Layout';
 import AnimatedPressable from '../components/AnimatedPressable';
@@ -180,9 +181,19 @@ const RateOrderCarousel = (props) => {
 }
 
 const Home = (props) => {
+  const [loaded, setLoaded] = React.useState(false);
+  
+  React.useEffect(() => {
+    setTimeout( () => {
+      setLoaded(true);
+    },2000);
+  },[])
+
   return (
     <>
-      <SearchHeader description="Manila" rightNav {...props} />
+      {loaded
+      && <SearchHeader description="Manila" rightNav {...props} />
+      || <HomeSkeleton />}
       <Layout bg="white">
 
         {/* Home navigation */}

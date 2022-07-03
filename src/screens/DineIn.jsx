@@ -6,8 +6,9 @@ import {
   Heading,
   ScrollView
 } from 'native-base';
-import Layout from '../components/Layout';
 import SearchHeader from '../components/headers/SearchHeader';
+import Layout from '../components/Layout';
+import DineInSkeleton from '../components/skeletons/DineInSkeleton';
 import RestaurantCard from '../components/RestaurantCard';
 import DealCard from '../components/DealCard';
 import CuisineCard from '../components/CuisineCard';
@@ -17,7 +18,7 @@ const DineIn = (props) => {
   return (
     <>
       <SearchHeader description="Dine-In" filter {...props} />
-      <Layout bg="white">
+      <Layout bg="white" skeleton={<DineInSkeleton />}>
 
         {/* Daily deals */}
         <Stack pt="4">
