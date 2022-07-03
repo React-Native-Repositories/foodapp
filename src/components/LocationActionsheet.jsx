@@ -64,7 +64,9 @@ const LocationActionsheet = forwardRef((props, ref) => {
           </HStack>
         </PressableRow>
         <Stack w="full" p="4">
-          <Button w="full"><Text color="white" bold>Confirm location</Text></Button>
+          <Button onPress={onClose} w="full">
+            <Text color="white" bold>Confirm location</Text>
+          </Button>
         </Stack>
       </Actionsheet.Content>
     </Actionsheet>
