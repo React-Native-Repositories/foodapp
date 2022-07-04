@@ -3,13 +3,8 @@ import {
   Stack,
   HStack,
   VStack,
-  Box,
   Heading,
-  Text,
-  ScrollView,
-  Pressable,
-  AspectRatio,
-  Image
+  ScrollView
 } from 'native-base';
 import SearchHeader from '../components/headers/SearchHeader';
 import Layout from '../components/Layout';

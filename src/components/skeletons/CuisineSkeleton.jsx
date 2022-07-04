@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton, VStack, HStack } from 'native-base';
+import { Skeleton, VStack } from 'native-base';
 
 const CuisineSkeleton = (props) => {
   return (

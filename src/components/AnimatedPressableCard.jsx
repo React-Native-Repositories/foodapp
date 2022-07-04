@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated } from 'react-native';
-import { View, Pressable, Box, Text } from 'native-base';
+import { View, Pressable } from 'native-base';
 
 const AnimatedPressable = (props) => {
   const animation = new Animated.Value(0);

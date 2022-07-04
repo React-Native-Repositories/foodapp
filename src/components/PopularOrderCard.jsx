@@ -1,6 +1,5 @@
 import React from 'react';
 import { Pressable, Box, AspectRatio, Image, Text } from 'native-base';
-import AnimatedPressable from './AnimatedPressable';
 
 const PopularOrderCard = (props) => {
   return (

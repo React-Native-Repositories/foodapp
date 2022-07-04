@@ -2,7 +2,6 @@ import React, { forwardRef, useImperativeHandle }  from 'react';
 import {
   VStack,
   HStack,
-  Center,
   Actionsheet,
   Heading,
   Text,
