@@ -190,188 +190,136 @@ const Home = (props) => {
   },[])
 
   return (
-    <>
-      {loaded
-      && <SearchHeader description="Manila" rightNav {...props} />
-      || <HomeSkeleton />}
-      <Layout bg="white">
+    <Layout
+      bg="white"
+      header={<SearchHeader description="Manila" rightNav {...props} />}
+      skeleton={<HomeSkeleton />}
+      hideHeaderOnLoad
+    >
 
-        {/* Home navigation */}
-        <Box bg="blueGray.100" p="4">
-          <VStack space="2">
-            <HStack space="2">
+      {/* Home navigation */}
+      <Box bg="blueGray.100" p="4">
+        <VStack space="2">
+          <HStack space="2">
+            <HomeItem
+              title={Data.homeNavItems[0].title}
+              description={Data.homeNavItems[0].description}
+              cover={Data.homeNavItems[0].cover}
+              routeName={Data.homeNavItems[0].routeName}
+              navigation={props.navigation}
+              descriptionMuted
+              coverBottom="-158"
+              w="1/2"
+              column
+            />
+            <VStack w="full" pr="4" space="2">
               <HomeItem
-                title={Data.homeNavItems[0].title}
-                description={Data.homeNavItems[0].description}
-                cover={Data.homeNavItems[0].cover}
-                routeName={Data.homeNavItems[0].routeName}
+                title={Data.homeNavItems[1].title}
+                description={Data.homeNavItems[1].description}
+                cover={Data.homeNavItems[1].cover}
+                routeName={Data.homeNavItems[1].routeName}
                 navigation={props.navigation}
+                titleSize="md"
                 descriptionMuted
-                coverBottom="-158"
+                coverSize="1/2"
+                coverBottom="-86"
                 w="1/2"
+                h="32"
                 column
               />
-              <VStack w="full" pr="4" space="2">
-                <HomeItem
-                  title={Data.homeNavItems[1].title}
-                  description={Data.homeNavItems[1].description}
-                  cover={Data.homeNavItems[1].cover}
-                  routeName={Data.homeNavItems[1].routeName}
-                  navigation={props.navigation}
-                  titleSize="md"
-                  descriptionMuted
-                  coverSize="1/2"
-                  coverBottom="-86"
-                  w="1/2"
-                  h="32"
-                  column
-                />
-                <HomeItem
-                  title={Data.homeNavItems[2].title}
-                  description={Data.homeNavItems[2].description}
-                  cover={Data.homeNavItems[2].cover}
-                  routeName={Data.homeNavItems[2].routeName}
-                  navigation={props.navigation}
-                  titleSize="md"
-                  descriptionMuted
-                  w="1/2"
-                />
-              </VStack>
-            </HStack>
-            <HStack space="2">
               <HomeItem
-                title={Data.homeNavItems[3].title}
-                description={Data.homeNavItems[3].description}
-                cover={Data.homeNavItems[3].cover}
-                routeName={Data.homeNavItems[3].routeName}
+                title={Data.homeNavItems[2].title}
+                description={Data.homeNavItems[2].description}
+                cover={Data.homeNavItems[2].cover}
+                routeName={Data.homeNavItems[2].routeName}
                 navigation={props.navigation}
                 titleSize="md"
                 descriptionMuted
                 w="1/2"
               />
-              <VStack w="full" pr="4" space="2">
-                <HomeItem
-                  title={Data.homeNavItems[4].title}
-                  description={Data.homeNavItems[4].description}
-                  cover={Data.homeNavItems[4].cover}
-                  routeName={Data.homeNavItems[4].routeName}
-                  navigation={props.navigation}
-                  titleSize="md"
-                  descriptionMuted
-                  w="1/2"
-                />
-              </VStack>
-            </HStack>
-          </VStack>
-        </Box>
-
-        {/* Restaurants */}
-        <Stack>
-          <Stack p="4" pt="5">
-            <Heading fontSize="lg">Your Restaurants</Heading>
-          </Stack>
-          <ScrollView
-            pb="2"
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{
-              pl: '4'
-            }}
-          >
-            <HStack space="2">
-              {Data.restaurants.map((item, index) => {
-                return (
-                  <RestaurantCard
-                    key={'restaurant'+index}
-                    title={item.title}
-                    description={item.description}
-                    promo1={item.promo1}
-                    promo2={item.promo2}
-                    deliveryFee={item.deliveryFee}
-                    deliveryTime={item.deliveryTime}
-                    cover={item.cover}
-                    onPress={() => {
-                      props.navigation.navigate('Restaurant', { index });
-                    }}
-                  />
-                );
-              })}
-            </HStack>
-          </ScrollView>
-        </Stack>
-
-        {/* Cuisines */}
-        <Stack>
-          <Stack p="4" pt="5">
-            <Heading fontSize="lg">Cuisines</Heading>
-          </Stack>
-          <ScrollView
-            pb="2"
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{
-              pl: '4'
-            }}
-          >
-            <VStack space="2">
-              <HStack space="2">
-                {Data.cuisines.row1.map((item, index) => {
-                  return (
-                    <CuisineCard
-                      key={'cuisineA'+index}
-                      title={item.title}
-                      cover={item.cover}
-                      navigation={props.navigation}
-                    />
-                  );
-                })}
-              </HStack>
-              <HStack space="2">
-                {Data.cuisines.row2.map((item, index) => {
-                  return (
-                    <CuisineCard
-                      key={'cuisineB'+index}
-                      title={item.title}
-                      cover={item.cover}
-                      navigation={props.navigation}
-                    />
-                  );
-                })}
-              </HStack>
             </VStack>
-          </ScrollView>
+          </HStack>
+          <HStack space="2">
+            <HomeItem
+              title={Data.homeNavItems[3].title}
+              description={Data.homeNavItems[3].description}
+              cover={Data.homeNavItems[3].cover}
+              routeName={Data.homeNavItems[3].routeName}
+              navigation={props.navigation}
+              titleSize="md"
+              descriptionMuted
+              w="1/2"
+            />
+            <VStack w="full" pr="4" space="2">
+              <HomeItem
+                title={Data.homeNavItems[4].title}
+                description={Data.homeNavItems[4].description}
+                cover={Data.homeNavItems[4].cover}
+                routeName={Data.homeNavItems[4].routeName}
+                navigation={props.navigation}
+                titleSize="md"
+                descriptionMuted
+                w="1/2"
+              />
+            </VStack>
+          </HStack>
+        </VStack>
+      </Box>
+
+      {/* Restaurants */}
+      <Stack>
+        <Stack p="4" pt="5">
+          <Heading fontSize="lg">Your Restaurants</Heading>
         </Stack>
-
-        <HomeItem
-          m="4"
-          cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/pro.png"
-          title="pro perks"
-          titleSize="md"
-          description="monthly exclusive deals and FREE..."
-          stretch
-          onPress={() => {
-            props.navigation.navigate('Campaign', { title: 'juanpro Deals Vendors' });
+        <ScrollView
+          pb="2"
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          _contentContainerStyle={{
+            pl: '4'
           }}
-        />
+        >
+          <HStack space="2">
+            {Data.restaurants.map((item, index) => {
+              return (
+                <RestaurantCard
+                  key={'restaurant'+index}
+                  title={item.title}
+                  description={item.description}
+                  promo1={item.promo1}
+                  promo2={item.promo2}
+                  deliveryFee={item.deliveryFee}
+                  deliveryTime={item.deliveryTime}
+                  cover={item.cover}
+                  onPress={() => {
+                    props.navigation.navigate('Restaurant', { index });
+                  }}
+                />
+              );
+            })}
+          </HStack>
+        </ScrollView>
+      </Stack>
 
-        {/* Daily deals */}
-        <Stack>
-          <Stack p="4" pt="2">
-            <Heading fontSize="lg">Your daily deals</Heading>
-          </Stack>
-          <ScrollView
-            pb="2"
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{
-              pl: '4'
-            }}
-          >
+      {/* Cuisines */}
+      <Stack>
+        <Stack p="4" pt="5">
+          <Heading fontSize="lg">Cuisines</Heading>
+        </Stack>
+        <ScrollView
+          pb="2"
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          _contentContainerStyle={{
+            pl: '4'
+          }}
+        >
+          <VStack space="2">
             <HStack space="2">
-              {Data.dailyDeals.map((item, index) => {
+              {Data.cuisines.row1.map((item, index) => {
                 return (
-                  <DealCard
-                    key={'deal'+index}
+                  <CuisineCard
+                    key={'cuisineA'+index}
                     title={item.title}
                     cover={item.cover}
                     navigation={props.navigation}
@@ -379,22 +327,74 @@ const Home = (props) => {
                 );
               })}
             </HStack>
-          </ScrollView>
+            <HStack space="2">
+              {Data.cuisines.row2.map((item, index) => {
+                return (
+                  <CuisineCard
+                    key={'cuisineB'+index}
+                    title={item.title}
+                    cover={item.cover}
+                    navigation={props.navigation}
+                  />
+                );
+              })}
+            </HStack>
+          </VStack>
+        </ScrollView>
+      </Stack>
+
+      <HomeItem
+        m="4"
+        cover="https://images.deliveryhero.io/image/foodpanda/ph/Homescreen/APAC_Rebrand_2021_Navigation/pro.png"
+        title="pro perks"
+        titleSize="md"
+        description="monthly exclusive deals and FREE..."
+        stretch
+        onPress={() => {
+          props.navigation.navigate('Campaign', { title: 'juanpro Deals Vendors' });
+        }}
+      />
+
+      {/* Daily deals */}
+      <Stack>
+        <Stack p="4" pt="2">
+          <Heading fontSize="lg">Your daily deals</Heading>
         </Stack>
+        <ScrollView
+          pb="2"
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          _contentContainerStyle={{
+            pl: '4'
+          }}
+        >
+          <HStack space="2">
+            {Data.dailyDeals.map((item, index) => {
+              return (
+                <DealCard
+                  key={'deal'+index}
+                  title={item.title}
+                  cover={item.cover}
+                  navigation={props.navigation}
+                />
+              );
+            })}
+          </HStack>
+        </ScrollView>
+      </Stack>
 
-        <HomeItem
-          m="4" mb="6"
-          title="Play and win prizes!"
-          titleSize="md"
-          description="Get rewards now"
-          stretch
-        />
+      <HomeItem
+        m="4" mb="6"
+        title="Play and win prizes!"
+        titleSize="md"
+        description="Get rewards now"
+        stretch
+      />
 
-        {/* Rate orders */}
-        <RateOrderCarousel mb="4" data={Data.restaurants} navigation={props.navigation} />
+      {/* Rate orders */}
+      <RateOrderCarousel mb="4" data={Data.restaurants} navigation={props.navigation} />
 
-      </Layout>
-    </>
+    </Layout>
   );
 }
 

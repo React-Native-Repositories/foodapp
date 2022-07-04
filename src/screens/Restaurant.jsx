@@ -68,22 +68,14 @@ const Dish = (props) => {
 const Restaurant = (props) => {
   const { index } = props.route.params;
   const data = Data.restaurants[index];
-  const [loaded, setLoaded] = React.useState(false);
-
-  React.useEffect(() => {
-    setTimeout( () => {
-      setLoaded(true);
-    },1000);
-  },[])
-
   return (
-    <>
-      {loaded
-      && <AppHeader title="Delivery" bg="white" {...props} />
-      || <RestaurantSkeleton />}
-      {data.dishes && 
-      <Layout>
-
+    <Layout
+      header={<AppHeader title="Delivery" bg="white" {...props} />}
+      skeleton={<RestaurantSkeleton />}
+      hideHeaderOnLoad
+    >
+      {data.dishes && <>
+      
         {/* Popular */}
         <DishCategorySection
           title="Popular"
@@ -116,10 +108,9 @@ const Restaurant = (props) => {
             </DishCategorySection>
           );
         })}
-        
-      </Layout>
-      }
-    </>
+
+      </>}
+    </Layout>
   );
 }
 

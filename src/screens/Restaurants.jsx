@@ -21,135 +21,136 @@ import * as Data from '../data';
 
 const Restaurants = (props) => {
   return (
-    <>
-      <SearchHeader description="Food delivery" rightNav filter {...props} />
-      <Layout bg="white" skeleton={<RestaurantsSkeleton />}>
+    <Layout
+      bg="white"
+      header={<SearchHeader description="Food delivery" rightNav filter {...props} />}
+      skeleton={<RestaurantsSkeleton />}
+    >
 
-        {/* Daily deals */}
-        <Stack pt="4">
-          <ScrollView
-            pb="2"
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{
-              pl: '4'
-            }}
-          >
-            <HStack space="2">
-              {Data.dailyDeals.map((item, index) => {
-                return (
-                  <DealCard
-                    key={'deal'+index}
-                    title={item.title}
-                    cover={item.cover}
-                    navigation={props.navigation}
-                  />
-                );
-              })}
-            </HStack>
-          </ScrollView>
+      {/* Daily deals */}
+      <Stack pt="4">
+        <ScrollView
+          pb="2"
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          _contentContainerStyle={{
+            pl: '4'
+          }}
+        >
+          <HStack space="2">
+            {Data.dailyDeals.map((item, index) => {
+              return (
+                <DealCard
+                  key={'deal'+index}
+                  title={item.title}
+                  cover={item.cover}
+                  navigation={props.navigation}
+                />
+              );
+            })}
+          </HStack>
+        </ScrollView>
+      </Stack>
+
+      {/* Your Favorites */}
+      <Stack>
+        <Stack p="4" pb="2">
+          <Heading fontSize="lg">Your Favorites</Heading>
         </Stack>
+        <ScrollView
+          pb="2"
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          _contentContainerStyle={{
+            pl: '4'
+          }}
+        >
+          <HStack space="2">
+            {Data.restaurants.map((item, index) => {
+              return (
+                <RestaurantCard
+                  key={'restaurant'+index}
+                  title={item.title}
+                  description={item.description}
+                  promo1={item.promo1}
+                  promo2={item.promo2}
+                  deliveryFee={item.deliveryFee}
+                  deliveryTime={item.deliveryTime}
+                  cover={item.cover}
+                  onPress={() => {
+                    props.navigation.navigate('Restaurant', { index });
+                  }}
+                />
+              );
+            })}
+          </HStack>
+        </ScrollView>
+      </Stack>
 
-        {/* Your Favorites */}
-        <Stack>
-          <Stack p="4" pb="2">
-            <Heading fontSize="lg">Your Favorites</Heading>
-          </Stack>
-          <ScrollView
-            pb="2"
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{
-              pl: '4'
-            }}
-          >
-            <HStack space="2">
-              {Data.restaurants.map((item, index) => {
-                return (
-                  <RestaurantCard
-                    key={'restaurant'+index}
-                    title={item.title}
-                    description={item.description}
-                    promo1={item.promo1}
-                    promo2={item.promo2}
-                    deliveryFee={item.deliveryFee}
-                    deliveryTime={item.deliveryTime}
-                    cover={item.cover}
-                    onPress={() => {
-                      props.navigation.navigate('Restaurant', { index });
-                    }}
-                  />
-                );
-              })}
-            </HStack>
-          </ScrollView>
+      {/* Cuisine */}
+      <Stack pb="2">
+        <Stack p="4" pt="0" pb="2">
+          <Heading fontSize="lg">Cuisine</Heading>
         </Stack>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          _contentContainerStyle={{
+            px: '4',
+            py: '1'
+          }}
+        >
+          <HStack space="2">
+            {Data.cuisines.row1.map((item, index) => {
+              return (
+                <CuisineCard
+                  key={'cuisineA'+index}
+                  title={item.title}
+                  cover={item.cover}
+                  navigation={props.navigation}
+                />
+              );
+            })}
+            {Data.cuisines.row2.map((item, index) => {
+              return (
+                <CuisineCard
+                  key={'cuisineB'+index}
+                  title={item.title}
+                  cover={item.cover}
+                  navigation={props.navigation}
+                />
+              );
+            })}
+          </HStack>
+        </ScrollView>
+      </Stack>
 
-        {/* Cuisine */}
+      {/* All Restaurants */}
+      <VStack p="4" space="2">
         <Stack pb="2">
-          <Stack p="4" pt="0" pb="2">
-            <Heading fontSize="lg">Cuisine</Heading>
-          </Stack>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{
-              px: '4',
-              py: '1'
-            }}
-          >
-            <HStack space="2">
-              {Data.cuisines.row1.map((item, index) => {
-                return (
-                  <CuisineCard
-                    key={'cuisineA'+index}
-                    title={item.title}
-                    cover={item.cover}
-                    navigation={props.navigation}
-                  />
-                );
-              })}
-              {Data.cuisines.row2.map((item, index) => {
-                return (
-                  <CuisineCard
-                    key={'cuisineB'+index}
-                    title={item.title}
-                    cover={item.cover}
-                    navigation={props.navigation}
-                  />
-                );
-              })}
-            </HStack>
-          </ScrollView>
+          <Heading fontSize="lg">All Restaurants</Heading>
         </Stack>
+        {Data.restaurants.map((item, index) => {
+          return (
+            <RestaurantCard
+              key={'restaurant'+index}
+              title={item.title}
+              description={item.description}
+              promo1={item.promo1}
+              promo2={item.promo2}
+              deliveryFee={item.deliveryFee}
+              deliveryTime={item.deliveryTime}
+              cover={item.cover}
+              maxW="full"
+              onPress={() => {
+                props.navigation.navigate('Restaurant', { index });
+              }}
+            />
+          );
+        })}
+      </VStack>
 
-        {/* All Restaurants */}
-        <VStack p="4" space="2">
-          <Stack pb="2">
-            <Heading fontSize="lg">All Restaurants</Heading>
-          </Stack>
-          {Data.restaurants.map((item, index) => {
-            return (
-              <RestaurantCard
-                key={'restaurant'+index}
-                title={item.title}
-                description={item.description}
-                promo1={item.promo1}
-                promo2={item.promo2}
-                deliveryFee={item.deliveryFee}
-                deliveryTime={item.deliveryTime}
-                cover={item.cover}
-                maxW="full"
-                onPress={() => {
-                  props.navigation.navigate('Restaurant', { index });
-                }}
-              />
-            );
-          })}
-        </VStack>
-
-      </Layout>
-    </>
+    </Layout>
   );
 }
 

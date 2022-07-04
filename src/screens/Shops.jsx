@@ -54,54 +54,55 @@ const ShopCard = (props) => {
 
 const Shops = (props) => {
   return (
-    <>
-      <SearchHeader description="Shops" searchText="Looking for something?" rightNav filter {...props} />
-      <Layout bg="white" skeleton={<ShopsSkeleton />}>
-        
-        {/* Daily deals */}
-        <Stack pt="4">
-          <ScrollView
-            pb="2"
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{
-              pl: '4'
-            }}
-          >
-            <HStack space="2">
-              {Data.dailyDeals.map((item, index) => {
-                return (
-                  <DealCard
-                    key={'deal'+index}
-                    title={item.title}
-                    cover={item.cover}
-                    navigation={props.navigation}
-                  />
-                );
-              })}
-            </HStack>
-          </ScrollView>
-        </Stack>
+    <Layout
+      bg="white"
+      header={<SearchHeader description="Shops" searchText="Looking for something?" rightNav filter {...props} />}
+      skeleton={<ShopsSkeleton />}
+    >
+      
+      {/* Daily deals */}
+      <Stack pt="4">
+        <ScrollView
+          pb="2"
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          _contentContainerStyle={{
+            pl: '4'
+          }}
+        >
+          <HStack space="2">
+            {Data.dailyDeals.map((item, index) => {
+              return (
+                <DealCard
+                  key={'deal'+index}
+                  title={item.title}
+                  cover={item.cover}
+                  navigation={props.navigation}
+                />
+              );
+            })}
+          </HStack>
+        </ScrollView>
+      </Stack>
 
-        {/* All Restaurants */}
-        <VStack p="4" space="4">
-          <Heading fontSize="lg">Shop by store</Heading>
-          {Data.shops.map((item, index) => {
-            return (
-              <ShopCard
-                key={'shop'+index}
-                title={item.title}
-                cover={item.cover}
-                cost={item.cost}
-                deliveryFee={item.deliveryFee}
-                deliveryPromo={item.deliveryTime}
-              />
-            );
-          })}
-        </VStack>
+      {/* All Restaurants */}
+      <VStack p="4" space="4">
+        <Heading fontSize="lg">Shop by store</Heading>
+        {Data.shops.map((item, index) => {
+          return (
+            <ShopCard
+              key={'shop'+index}
+              title={item.title}
+              cover={item.cover}
+              cost={item.cost}
+              deliveryFee={item.deliveryFee}
+              deliveryPromo={item.deliveryTime}
+            />
+          );
+        })}
+      </VStack>
 
-      </Layout>
-    </>
+    </Layout>
   );
 }
 

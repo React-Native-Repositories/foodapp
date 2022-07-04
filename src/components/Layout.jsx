@@ -11,16 +11,19 @@ const Layout = (props) => {
   },[])
 
   return (
-    <HStack flex={1}>
-      {!loaded && props.skeleton}
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        _contentContainerStyle={{ p: props.p }}
-        {...props}
-      >
-        {props.children}
-      </ScrollView>
-    </HStack>
+    <>
+      {props.hideHeaderOnLoad && (loaded && props.header || props.skeleton) || props.header}
+      <HStack flex={1}>
+        {(!props.hideHeaderOnLoad && !loaded) && props.skeleton}
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          _contentContainerStyle={{ p: props.p }}
+          {...props}
+        >
+          {props.children}
+        </ScrollView>
+      </HStack>
+    </>
   );
 }
 

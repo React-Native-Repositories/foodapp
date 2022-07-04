@@ -4,11 +4,11 @@ import AppHeader from '../components/headers/AppHeader';
 
 const JuanMart = (props) => {
   return (
-    <>
-      <AppHeader title="juanmart" bg="white" {...props} />
-      <Layout bg="white">
-      </Layout>
-    </>
+    <Layout
+      bg="white"
+      header={<AppHeader title="juanmart" bg="white" {...props} />}
+    >
+    </Layout>
   );
 }
 
